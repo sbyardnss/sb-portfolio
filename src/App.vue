@@ -1,18 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="portfolio-container">
+    <Nav
+      id="navContainer" />
+    <RouterView
+      :key="$route.fullPath"
+      id="routerContainer" />
+  </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
-
-@Options({
+// import { Options, Vue } from 'vue-class-component';
+import Nav from './components/Nav.vue';
+import { defineComponent } from 'vue';
+// @Options({
+//   components: {
+//     Nav,
+//     ProjectsDisplay,
+//   },
+// })
+// export default class App extends Vue {}
+export default defineComponent({
+  name: 'SBPortfolio',
   components: {
-    HelloWorld,
+    Nav,
   },
-})
-export default class App extends Vue {}
+});
+
 </script>
 
 <style lang="scss">
@@ -20,8 +33,21 @@ export default class App extends Vue {}
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0px;
 }
+
+#portfolio-container {
+  height: 100vh;
+  width: 100vw;
+}
+#routerContainer {
+  height: 89%;
+}
+#navContainer {
+  height: 10%;
+}
+
+
 </style>
