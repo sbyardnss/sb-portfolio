@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container" :class="$style.homePageContainer">
+  <div :class="$style.homePageContainer">
     <section class="light-text" :class="$style.aboutMe">
       <div :class="$style.sbImage" />
       <!-- <div class="flex-column" style="width: 50%; padding: 2em;"> -->
@@ -30,7 +30,8 @@ export default defineComponent({
 <style module>
 .homePageContainer {
   /* width: 100%; */
-  height: auto;
+  /* height: 100%; */
+  height: 100%;
   display: flex;
   align-items: center;
   /* background-color: black; */
@@ -43,7 +44,6 @@ export default defineComponent({
 }
 
 .aboutMe {
-  /* border: 1px solid green; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -59,15 +59,11 @@ export default defineComponent({
 }
 .bio {
   width: 50%;
-  height: fit-content;
   text-align: start;
   background: linear-gradient(0.25turn, #090a0f, transparent);
-  /* border: 1px solid rgb(226, 226, 226); */
-  /* color: rgb(226, 226, 226); */
   font-size: large;
   font-weight: 100;
   padding: 2em;
-  /* align-self: flex-end; */
 }
 </style>
 

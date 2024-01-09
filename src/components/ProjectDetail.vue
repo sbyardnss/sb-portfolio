@@ -37,6 +37,6 @@ export default defineComponent({
 </script>
 <style module>
 .projectDetailContainer {
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 }
 </style>

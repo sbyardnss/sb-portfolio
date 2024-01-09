@@ -1,16 +1,22 @@
 <template>
-  <div class="light-text page-container" :class="$style.projectsContainer">
+  <div class="light-text" :class="$style.projectsContainer">
     <h1>Projects</h1>
-    <div v-if="!project">
-      <div :key="project.name" v-for="project in projects">
-        <router-link
-          :to="{
-            name: 'ProjectDetail',
-            params: { projectName: navigateToProject(project.name) },
-          }"
-          >{{ project.name }}</router-link
-        >
-      </div>
+    <div v-if="!project" :class="$style.projectList">
+      <router-link
+        :to="{
+          name: 'ProjectDetail',
+          params: { projectName: navigateToProject(project.name) },
+        }"
+        class="flex-between light-text"
+        :key="project.name"
+        :class="$style.projectItem"
+        v-for="project in projects"
+      >
+        <div :class="$style.projectTitle">
+          {{ project.name }}
+        </div>
+        <p :class="$style.projectPitch">{{ project.pitch }}</p>
+      </router-link>
     </div>
     <div v-else>
       <ProjectDetail :project="project" />
@@ -46,7 +52,8 @@ export default defineComponent({
           p =>
             p.name.toLowerCase() === projectName.replace("-", " ").toLowerCase()
         );
-      } return '';
+      }
+      return "";
     },
   },
 });
@@ -54,5 +61,48 @@ export default defineComponent({
 <style module>
 .projectsContainer {
   border: 1px solid blue;
+  padding: 1em;
+  height: 100%;
 }
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.projectItem {
+  text-decoration: none;
+  justify-self: center;
+  transition: 0.15s ease-in-out;
+  background: #2c1b35;
+  width: 100%;
+  margin-bottom: 1em;
+  transition: 0.15s ease-in-out;
+  border: 1px solid #9a5cba;
+  border-radius: 0.5em;
+}
+
+.projectItem:hover {
+  transition: 0.15s ease-in-out;
+  background: #533165;
+}
+.projectTitle {
+  margin: 1em;
+  font-size: X-large;
+  font-weight: lighter;
+  color: whitesmoke;
+}
+
+.projectPitch {
+  width: 60%;
+  height: fit-content;
+  align-self: center;
+}
+
+/* .projectTitle:hover {
+  transition: 0.15s ease-in-out;
+  color: rgb(0, 191, 172);
+} */
 </style>

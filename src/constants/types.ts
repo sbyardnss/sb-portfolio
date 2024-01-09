@@ -4,4 +4,5 @@ export type Project = {
   description: string;
   features: string[];
   notes: string[];
+  pitch: string;
 };

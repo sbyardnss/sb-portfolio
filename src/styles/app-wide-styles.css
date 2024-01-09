@@ -4,9 +4,6 @@ body {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
-.page-container {
-  padding: 1em;
-}
 
 .page-header {
   width: 100%;
@@ -21,6 +18,11 @@ body {
 .flex-evenly {
   display: flex;
   justify-content: space-evenly;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .flex-column {

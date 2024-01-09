@@ -4,6 +4,7 @@ export const ProjectLinks: Project[] = [
   {
     name: "Villager Chess",
     url: "https://villagerchess.netlify.app",
+    pitch: "Chess club management platform",
     description:
       "An application designed to assist chess clubs by providing a public forum for each club as well as a platform for hosting, managing, and finalizing Swiss chess tournaments.",
     features: [
@@ -27,6 +28,7 @@ export const ProjectLinks: Project[] = [
   {
     name: "Carsello Art",
     url: "https://carselloart.netlify.app",
+    pitch: "E-commerce application for Nashville based artist",
     description:
       "An application for artist Lizzie Carsello to showcase her services, advertise her upcoming shows, and sell her art via PayPal integration.",
     features: [
@@ -46,6 +48,7 @@ export const ProjectLinks: Project[] = [
   {
     name: "Mastermind",
     url: "https://sb-mastermind.netlify.app",
+    pitch: "Based on the popular board game",
     description:
       "A mastermind clone made to better acquaint myself with Vue in preparation for working at Chess.com",
     features: [
