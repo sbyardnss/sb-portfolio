@@ -31,26 +31,21 @@ export default defineComponent({
 .homePageContainer {
   /* width: 100%; */
   /* height: 100%; */
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   align-items: center;
-  /* background-color: black; */
-  /* background-image: url("../assets/stars.jpg"); */
-  /* background: linear-gradient(purple 0%, red 80%),
-    linear-gradient(to right, purple 0%, yellow 100%),
-    url("../assets/stars.jpg");
-  background-blend-mode: screen, difference, lighten;
-  background-size: cover; */
+
 }
 
 .aboutMe {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
 .sbImage {
-  width: 25%;
+  width: 25em;
   height: 30em;
   background-image: url("../assets/faceBio.jpeg");
   background-size: cover;

@@ -60,11 +60,14 @@ export default defineComponent({
 </script>
 <style module>
 .projectsContainer {
-  border: 1px solid blue;
-  padding: 1em;
-  height: 100%;
+  /* border: 1px solid blue; */
+  /* height: 100%; */
+  /* margin: 1em; */
 }
-
+h1 {
+  padding: 1em;
+  margin: 0;
+}
 .projectList {
   display: flex;
   flex-direction: column;

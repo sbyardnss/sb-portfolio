@@ -40,10 +40,11 @@ export default defineComponent({
 
 #portfolio-container {
   height: 100vh;
-  width: 100vw;
 }
 #routerContainer {
-  height: 89%;
+  padding: 1em;
+  min-height: 88%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 #navContainer {
   height: 10%;

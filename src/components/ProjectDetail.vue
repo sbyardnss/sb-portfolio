@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.projectDetailContainer">
-    <div class="page-header">
+    <div class="page-header" :class="$style.projectDetailHeader">
       <h1>{{ project?.name }}</h1>
       <router-link class="btn-primary" v-if="project" to="/projects" >back to all projects</router-link>
     </div>
@@ -37,6 +37,11 @@ export default defineComponent({
 </script>
 <style module>
 .projectDetailContainer {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+}
+.projectDetailHeader {
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
 }
 </style>
