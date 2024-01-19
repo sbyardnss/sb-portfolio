@@ -1,14 +1,20 @@
 <template>
   <div class="light-text">
-    this is your experience
-    <section>
+    <section class="padded-container-1">
       <h2>Technical Experience</h2>
-      <div>Chess.com</div>
-      <div>NSS</div>
-      <div>Freelance</div>
-      - Carsello art - Villager chess - user feedback
+      <div :key="experience.title" v-for="experience in experienceList" class="padded-container-1">
+        <div>
+          {{ experience.title }} - {{ experience.date }}
+        </div>
+        <div>
+          {{ experience.position }}
+        </div>
+        <p>
+          {{ experience.description }}
+        </p>
+      </div>
     </section>
-    <section>
+    <section class="padded-container-1">
       <h2>Takeaways</h2>
       - Part 1: planning - understanding goals - clear outline of functionality
       as much as possible - design mockups - time management? - Part 2:
@@ -20,7 +26,8 @@
       requests - Learned how to incorporate cloudinary - Learned how to
       incorporate openAI - points of improvement
     </section>
-    <section class="light-text">
+    <Timeline />
+    <section class="padded-container-1">
       <h2>Education</h2>
       <h3>University of Tennessee at Chattanooga</h3>
       <p>BA, Communication 2013</p>
@@ -30,9 +37,19 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { ExperienceList } from "@/constants/experience";
+import Timeline from './Timeline.vue'
 
 export default defineComponent({
   name: "ExperiencePage",
+  components: {
+    Timeline,
+  },
+  data() {
+    return {
+      experienceList: ExperienceList,
+    }
+  }
 });
 </script>
 <style module></style>

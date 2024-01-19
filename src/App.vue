@@ -39,15 +39,15 @@ export default defineComponent({
 }
 
 #portfolio-container {
-  height: 100vh;
+  // height: 100vh;
 }
 #routerContainer {
-  padding: 1em;
-  min-height: 88%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  // padding: .5em;
+  // height: 90vh;
+  // background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 #navContainer {
-  height: 10%;
+  // height: 14vh;
 }
 
 

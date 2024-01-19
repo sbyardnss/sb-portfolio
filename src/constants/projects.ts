@@ -1,4 +1,4 @@
-import type { Project } from "./types";
+import type { Project } from "src/constants/types";
 
 export const ProjectLinks: Project[] = [
   {
@@ -23,7 +23,19 @@ export const ProjectLinks: Project[] = [
       'ReactJS frontend',
       'Python/Django backend',
       'Custom Django permissions',
-    ]
+    ],
+    images: [
+      '/assets/villager_chess/homepage.jpeg',
+      '/assets/villager_chess/overboard.jpeg',
+      '/assets/villager_chess/scoring.jpeg',
+      '/assets/villager_chess/table.jpeg',
+      '/assets/villager_chess/results.jpg',
+      '/assets/villager_chess/messaging.jpeg',
+    ],
+    github: {
+      frontEnd: 'https://github.com/sbyardnss/villager-client',
+      backEnd: 'https://github.com/sbyardnss/villager-server',
+    },
   },
   {
     name: "Carsello Art",
@@ -44,6 +56,11 @@ export const ProjectLinks: Project[] = [
       'Python/Django backend',
       'Custom Django permissions',
     ],
+    images: [],
+    github: {
+      frontEnd: 'https://github.com/sbyardnss/carsello-client',
+      backEnd: 'https://github.com/sbyardnss/carsello-server',
+    },
   },
   {
     name: "Mastermind",
@@ -59,5 +76,10 @@ export const ProjectLinks: Project[] = [
       'Vue3',
       'CSS modules',
     ],
+    images: [],
+    github: {
+      frontEnd: 'https://github.com/sbyardnss/vue-codeBreaker',
+      backEnd: '',
+    },
   },
 ];

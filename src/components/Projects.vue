@@ -1,22 +1,35 @@
 <template>
   <div class="light-text" :class="$style.projectsContainer">
-    <h1>Projects</h1>
     <div v-if="!project" :class="$style.projectList">
-      <router-link
-        :to="{
-          name: 'ProjectDetail',
-          params: { projectName: navigateToProject(project.name) },
-        }"
-        class="flex-between light-text"
+      <h1>Projects</h1>
+      <div 
+        class="flex between light-text align-c"
         :key="project.name"
         :class="$style.projectItem"
-        v-for="project in projects"
-      >
-        <div :class="$style.projectTitle">
-          {{ project.name }}
+        v-for="project in projects">
+        <div class="flex align-c">
+          <div class="flex align-c" :class="$style.projectTitle">
+            {{ project.name }}
+          </div>
+          <ImageDisplay :click-zoom="false" :hover-zoom="false" :image-url="project.images[0]" :image-width="'8em'" :image-class="'imageElement'"/>
         </div>
-        <p :class="$style.projectPitch">{{ project.pitch }}</p>
-      </router-link>
+        <div class="flex evenly align-c">
+          <p :class="$style.projectPitch">{{ project.pitch }}</p>
+          <div class="flex column">
+            <a class="btn-action flex align-c" :href="project.github.frontEnd" target='_blank'>Github Frontend</a>
+            <a class="btn-action flex align-c" :href="project.github.backEnd" target='_blank'>Github Backend</a>
+          </div>
+          <router-link
+            class="btn-radial"
+            :to="{
+              name: 'ProjectDetail',
+              params: { projectName: navigateToProject(project.name) },
+            }"
+          >
+          See More Details
+          </router-link>
+        </div>
+      </div>
     </div>
     <div v-else>
       <ProjectDetail :project="project" />
@@ -27,11 +40,13 @@
 import { defineComponent } from "vue";
 import { ProjectLinks } from "../constants/projects";
 import ProjectDetail from "./ProjectDetail.vue";
+import ImageDisplay from "@/utils/image-display.vue";
 
 export default defineComponent({
   name: "ProjectsDisplay",
   components: {
     ProjectDetail,
+    ImageDisplay,
   },
   data() {
     return {
@@ -81,6 +96,7 @@ h1 {
   transition: 0.15s ease-in-out;
   background: #2c1b35;
   width: 100%;
+  height: 20em;
   margin-bottom: 1em;
   transition: 0.15s ease-in-out;
   border: 1px solid #9a5cba;
@@ -98,8 +114,11 @@ h1 {
   color: whitesmoke;
 }
 
+.demoImage {
+  height: 90%;
+}
 .projectPitch {
-  width: 60%;
+  width: 30%;
   height: fit-content;
   align-self: center;
 }

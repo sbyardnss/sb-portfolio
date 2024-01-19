@@ -4,6 +4,7 @@ import ProjectDetail from "@/components/ProjectDetail.vue";
 import HomePage from "@/components/Home.vue";
 import ExperiencePage from "@/components/Experience.vue";
 import ResumeDownload from "@/components/Resume.vue";
+import WordSearchVue from "@/components/WordSearch.vue";
 // import Home from '@/views/Home.vue'
 // import Cats from '@/views/Cats.vue'
 
@@ -34,6 +35,11 @@ const routes: RouteRecordRaw[] = [
     path: "/resume",
     name: "Resume",
     component: ResumeDownload,
+  },
+  {
+    path: "/fun",
+    name: "Fun",
+    component: WordSearchVue,
   },
   // {
   //   path: "/cats",

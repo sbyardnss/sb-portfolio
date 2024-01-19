@@ -34,6 +34,7 @@ export default defineComponent({
   /* height: 100%; */
   display: flex;
   align-items: center;
+  
 
 }
 
@@ -45,7 +46,10 @@ export default defineComponent({
   width: 100%;
 }
 .sbImage {
+  font-size: 3vw;
   width: 25em;
+  max-width: 400px;
+  max-height: 480px;
   height: 30em;
   background-image: url("../assets/faceBio.jpeg");
   background-size: cover;
@@ -56,7 +60,7 @@ export default defineComponent({
   width: 50%;
   text-align: start;
   background: linear-gradient(0.25turn, #090a0f, transparent);
-  font-size: large;
+  font-size: 1em;
   font-weight: 100;
   padding: 2em;
 }
