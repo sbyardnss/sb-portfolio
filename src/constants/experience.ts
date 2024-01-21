@@ -3,6 +3,7 @@ import type { Experience } from "src/constants/types";
 export const ExperienceList: Experience[] = [
   {
     title: 'Chess.com',
+    type: 'work',
     position: 'Frontend intern',
     date: 'October 2023 - January 2024',
     description: 'During my 3-month Frontend Engineering internship at Chess.com, I assisted in the development of MVC applications using VueJS with TypeScript. I seamlessly integrated PHP communication with the backend, managed Twig files for PHP compile, and implemented testing suites with Cypress. I actively collaborated with management and design teams, following a daily SCRUM workflow. Additionally, I contributed to Docker DevOps, utilized Jira for ticketing, and maintained source code/version control with Git/Github. My involvement extended to assisting in the migration from Vue 2 to Vue 3 for future enhancements.',
@@ -12,6 +13,7 @@ export const ExperienceList: Experience[] = [
   },
   {
     title: 'NSS',
+    type: 'education',
     position: 'Apprentice',
     date: 'January 2023 - June 2023',
 
@@ -22,6 +24,7 @@ export const ExperienceList: Experience[] = [
   },
   {
     title: 'Freelance',
+    type: 'work',
     position: '',
     date: '',
     description: '',

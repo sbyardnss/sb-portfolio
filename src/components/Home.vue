@@ -1,9 +1,8 @@
 <template>
-  <div :class="$style.homePageContainer">
-    <section class="light-text" :class="$style.aboutMe">
-      <div :class="$style.sbImage" />
-      <!-- <div class="flex-column" style="width: 50%; padding: 2em;"> -->
-        <!-- <div style="font-size: 100px; font-weight: 100;">Stephen Byard</div> -->
+  <div class="padded-container-1" :class="$style.homePageContainer">
+    <section class="light-text flex" :class="$style.aboutMe">
+      <div class="flex column" :class="$style.bioNameContainer">
+        <h1 style="width: fit-content;">Hi, I'm Stephen</h1>
         <p :class="$style.bio">
           I'm a full-stack software developer based in Nashville, TN. Driven by a
           passion for learning, I thrive on mastering new technologies, unraveling
@@ -16,15 +15,21 @@
           where every project is an opportunity to achieve something
           extraordinary.
         </p>
-      <!-- </div> -->
+      </div>
+      <div :class="$style.sbImage" />
     </section>
+    <Timeline />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import Timeline from "../components/Timeline.vue";
 
 export default defineComponent({
   name: "HomePage",
+  components: {
+    Timeline,
+  },
 });
 </script>
 <style module>
@@ -32,12 +37,13 @@ export default defineComponent({
   /* width: 100%; */
   /* height: 100%; */
   /* height: 100%; */
-  display: flex;
-  align-items: center;
-  
+  width: 70vw;
+  margin: 2em auto;
 
 }
-
+.bioNameContainer {
+  width: 50%;
+}
 .aboutMe {
   display: flex;
   flex-wrap: wrap;
@@ -45,6 +51,7 @@ export default defineComponent({
   align-items: center;
   width: 100%;
 }
+
 .sbImage {
   font-size: 3vw;
   width: 25em;
@@ -55,9 +62,11 @@ export default defineComponent({
   background-size: cover;
   background-position-x: center;
   filter: drop-shadow(1em 1em .5em #090a0f75);
+  border-radius: 10px;
 }
+
 .bio {
-  width: 50%;
+  /* width: 100%; */
   text-align: start;
   background: linear-gradient(0.25turn, #090a0f, transparent);
   font-size: 1em;

@@ -1,4 +1,4 @@
-export type Project = {
+export interface Project {
   name: string;
   url: string;
   description: string;
@@ -10,12 +10,15 @@ export type Project = {
     frontEnd: string,
     backEnd: string,
   };
-};
+}
 
-export type Experience = {
+export interface Experience {
   title: string;
+  type: 'work' | 'education';
   position: string;
   date: string;
   description: string;
   notes: string[];
 }
+
+// export type

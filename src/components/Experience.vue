@@ -26,7 +26,6 @@
       requests - Learned how to incorporate cloudinary - Learned how to
       incorporate openAI - points of improvement
     </section>
-    <Timeline />
     <section class="padded-container-1">
       <h2>Education</h2>
       <h3>University of Tennessee at Chattanooga</h3>
@@ -38,13 +37,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ExperienceList } from "@/constants/experience";
-import Timeline from './Timeline.vue'
 
 export default defineComponent({
   name: "ExperiencePage",
-  components: {
-    Timeline,
-  },
+
   data() {
     return {
       experienceList: ExperienceList,

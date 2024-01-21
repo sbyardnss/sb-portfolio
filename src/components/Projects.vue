@@ -74,11 +74,9 @@ export default defineComponent({
 });
 </script>
 <style module>
-.projectsContainer {
-  /* border: 1px solid blue; */
-  /* height: 100%; */
-  /* margin: 1em; */
-}
+/* .projectsContainer {
+
+} */
 h1 {
   padding: 1em;
   margin: 0;
