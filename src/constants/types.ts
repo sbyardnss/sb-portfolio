@@ -21,4 +21,9 @@ export interface Experience {
   notes: string[];
 }
 
-// export type
+export interface Skill {
+  name: string;
+  devIconLink: string;
+  strength: number;
+  aspect: 'frontend' | 'backend' | 'general';
+}

@@ -3,11 +3,11 @@
     <div class="qualification__tabs flex between">
       <div class="qualification__button button--flex" data-target="#work" @click="handleChangeExperienceView('experience')">
         <i class="uil uil-briefcase-alt qualification__icon"></i>
-        <h1>Experience</h1>
+        <div class="timeline_tab"><span :class="displayClass === 'experienceList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Experience</span></div>
       </div>
       <div class="qualification__button button--flex qualification__active" data-target="#education" @click="handleChangeExperienceView('skills')">
         <i class="uil uil-graduation-cap qualification__icon"></i>
-        <h1>Skills</h1>
+        <div class="timeline_tab"><span :class="displayClass === 'skillList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Skills</span></div>
       </div>
     </div>
     <div class="qualification__sections" :class="$style.experienceDisplayContainer">
@@ -33,10 +33,12 @@
             </div>
           </div> -->
         </div>
-        <div class="timeline_block" data-content id="education" :class="$style.skillBlock">
-          showing education
-          <div :key="education.date" v-for="education in educationExperience">
+        <div class="timeline_block light-text" data-content id="skills" :class="$style.skillBlock">
+          <!-- <div :key="education.date" v-for="education in educationExperience">
             {{ education.position }}
+          </div> -->
+          <div :key="skill.name" v-for="skill in skillList" :class="$style.skillItem">
+            <i class="size-2em" :class="'devicon-' + skill.devIconLink"></i>
           </div>
         </div>
         
@@ -47,14 +49,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { ExperienceList } from '@/constants/experience';
+import { SkillList } from '@/constants/skills';
 
 export default defineComponent({
   name: 'HistoryTimeline',
   data() {
     return {
       myExperience: ExperienceList,
-      // experienceOrSkills: 'skills',
-      displayClass: 'experienceList',
+      skillList: SkillList,
+      displayClass: 'skillList',
+      // sliderTabSelected: 'experience'
+      hoveredSkill: '',
     }
   },
   computed: {
@@ -74,21 +79,12 @@ export default defineComponent({
       }
     },
   },
-  // watch: {
-  //   experienceOrSkills() {
-  //     if (this.experienceOrSkills) {
-  //       this.displayClass = 'workExperience';
-  //     } else {
-  //       this.displayClass = 'educationExperience';
-  //     }
-  //   }
-  // }
 })
 </script>
 <style module>
 .timelineContainer {
   width: 30em;
-  margin: 0 auto;
+  margin: 2em auto;
 }
 .experienceDisplayContainer {
   width: 30em;
@@ -97,6 +93,19 @@ export default defineComponent({
   border: 1px solid orange;
   border-radius: 10px;
   outline: 2px solid teal;
+}
+
+.sliderTabSelected {
+  color: var(--first-color);
+}
+.sliderTabUnselected {
+  cursor: pointer;
+  color: var(--first-color-lighter);
+
+}
+.sliderTabUnselected:hover {
+  color: var(--first-color-alt);
+  cursor: pointer;
 }
 
 .experienceList {
@@ -114,10 +123,24 @@ export default defineComponent({
   transform: translateX(-100%);
 
 }
+.skillItem {
+  width: 15%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.skillItem .skillTooltip {
+  visibility: hidden;
+}
+.skillItem:hover .skillTooltip {
+  visibility: visible;
+}
 .skillBlock {
-  /* min-width: 30em;
-  height: 30em;
-  background-color: blue; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1em 0;
 }
 .experienceBlock {
   /* min-width: 30em;

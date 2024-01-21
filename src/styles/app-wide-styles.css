@@ -14,6 +14,12 @@ body {
   padding: 1em;
 }
 
+/* sizing */
+.size-2em {
+  font-size: 3em;
+  /* margin: 1em; */
+}
+
 /* text */
 .light-text {
   color: rgb(226, 226, 226);
@@ -125,6 +131,10 @@ body {
 }
 
 /* timeline */
+
+.timeline_tab {
+  font-size: xx-large;
+}
 
 .timeline_slider {
   width: 30em;
