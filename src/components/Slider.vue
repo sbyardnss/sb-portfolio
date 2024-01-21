@@ -52,12 +52,12 @@ import { ExperienceList } from '@/constants/experience';
 import { SkillList } from '@/constants/skills';
 
 export default defineComponent({
-  name: 'HistoryTimeline',
+  name: 'SliderWindow',
   data() {
     return {
       myExperience: ExperienceList,
       skillList: SkillList,
-      displayClass: 'skillList',
+      displayClass: 'experienceList',
       // sliderTabSelected: 'experience'
       hoveredSkill: '',
     }

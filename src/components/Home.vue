@@ -18,25 +18,22 @@
       </div>
       <div :class="$style.sbImage" />
     </section>
-    <Timeline />
+    <SliderWindow />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import Timeline from "../components/Timeline.vue";
+import SliderWindow from "../components/Slider.vue";
 
 export default defineComponent({
   name: "HomePage",
   components: {
-    Timeline,
+    SliderWindow,
   },
 });
 </script>
 <style module>
 .homePageContainer {
-  /* width: 100%; */
-  /* height: 100%; */
-  /* height: 100%; */
   width: 70vw;
   margin: 2em auto;
 
