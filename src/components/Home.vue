@@ -1,34 +1,52 @@
 <template>
-  <div class="padded-container-1" :class="$style.homePageContainer">
+  <div class="padded-container-1 flex column" :class="$style.homePageContainer">
+    <div :class="$style.socialMediaLinkContainer" class="flex column between">
+      <a href="https://github.com/sbyardnss" target="_blank" :class="$style.socialMediaIcon" class="devicon-github-original"></a>
+      <a href="https://www.linkedin.com/in/stephen-byard/" target="_blank" :class="$style.socialMediaIcon" class="devicon-linkedin-plain"></a>
+      <a :class="$style.socialMediaIcon" @click="handleDownloadResume">CV</a>
+    </div>
     <section class="light-text flex" :class="$style.aboutMe">
       <div class="flex column" :class="$style.bioNameContainer">
         <h1 style="width: fit-content;">Hi, I'm Stephen</h1>
-        <p :class="$style.bio">
-          I'm a full-stack software developer based in Nashville, TN. Driven by a
-          passion for learning, I thrive on mastering new technologies, unraveling
-          complex problems, and continuously expanding my skill set. In every
-          project, I bring not just technical expertise but a mindset fueled by
-          the excitement of exploration and discovery.
-          <br />
-          <br />
-          Join me on this exciting journey, at the intersection of code and creativity,
-          where every project is an opportunity to achieve something
-          extraordinary.
-        </p>
+        <div class="flex align-c">
+          <p :class="$style.bio">
+            I'm a full-stack software developer based in Nashville, TN. Driven by a
+            passion for learning, I thrive on mastering new technologies, unraveling
+            complex problems, and continuously expanding my skill set. In every
+            project, I bring not just technical expertise but a mindset fueled by
+            the excitement of exploration and discovery.
+            <br />
+            <br />
+            Join me on this exciting journey, at the intersection of code and creativity,
+            where every project is an opportunity to achieve something
+            extraordinary.
+          </p>
+        </div>
       </div>
       <div :class="$style.sbImage" />
     </section>
-    <SliderWindow />
+    <div class="flex between align-c" >
+      <SliderWindow />
+      <!-- <SkillsDisplay /> -->
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import SliderWindow from "../components/Slider.vue";
+import { downloadResume } from "@/utils/download-resume";
+// import SkillsDisplay from "./SkillsDisplay.vue";
 
 export default defineComponent({
   name: "HomePage",
   components: {
     SliderWindow,
+    // SkillsDisplay,
+  },
+  methods: {
+    handleDownloadResume() {
+      downloadResume();
+    },
   },
 });
 </script>
@@ -47,6 +65,22 @@ export default defineComponent({
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  padding-right: 4em;
+}
+
+.socialMediaLinkContainer {
+  position: absolute;
+  left: 2vw;
+}
+.socialMediaIcon {
+  margin: .5em .2em;
+  font-size: 2.5em;
+  color: var(--first-color-faint-2);
+  cursor: pointer;
+  text-decoration: none;
+}
+.socialMediaIcon:hover {
+  color: var(--first-color-faint-lighter);
 }
 
 .sbImage {

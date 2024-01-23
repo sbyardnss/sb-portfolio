@@ -2,13 +2,14 @@
   <div class="light-text flex evenly padded-container-1">
 
     <ImageDisplay :image-url="require('../assets/Stephen Byard Resume.jpg')" :image-width="'30%'" :hover-zoom="false" :click-zoom="true" :image-class="'imageElementWithHover'"/>
-    <h2><a class="btn-action" @click="downloadPDF">Download PDF</a></h2>
+    <h2><a class="btn-action" @click="handleDownloadResume">Download PDF</a></h2>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import ImageDisplay from "@/utils/image-display.vue";
+import { downloadResume } from "@/utils/download-resume";
 
 export default defineComponent({
   name: "ResumeDownload",
@@ -16,25 +17,8 @@ export default defineComponent({
     ImageDisplay,
   },
   methods: {
-    downloadPDF() {
-      // window.open('/Stephen Byard Resume.pdf', '_blank');
-      fetch('/Stephen Byard Resume.pdf')
-        .then(response => response.blob())
-        .then(blob => {
-          // Create a blob URL representing the PDF file
-          let url = window.URL.createObjectURL(blob);
-          // Create a link element
-          let link = document.createElement('a');
-          link.href = url;
-          // Set the download attribute of the link element
-          link.setAttribute('download', 'Stephen Byard Resume.pdf');
-          // Append the link to body
-          document.body.appendChild(link);
-          // Simulate click to start download
-          link.click();
-          // Remove the link from body
-          document.body.removeChild(link);
-      });
+    handleDownloadResume() {
+      downloadResume();
     },
   },
 });

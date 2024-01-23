@@ -2,9 +2,10 @@
   <div class="light-text">
     <section class="padded-container-1">
       <h2>Technical Experience</h2>
-      <div :key="experience.title" v-for="experience in experienceList" class="padded-container-1">
+      <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer" v-for="experience in experienceList"
+        class="padded-container-1">
         <div>
-          {{ experience.title }} - {{ experience.date }}
+          {{ experience.employer }} - {{ experience.date }}
         </div>
         <div>
           {{ experience.position }}
@@ -45,10 +46,38 @@ export default defineComponent({
     return {
       experienceList: ExperienceList,
     }
+  },
+  methods: {
+    scrollToExperience(employer: string) {
+      const refArray = this.$refs[employer] as Element[];
+      if (refArray && refArray.length > 0) {
+        refArray[0].scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+        console.log('to', to)
+        console.log('from', from)
+        if (to.hash) {
+          console.log('hitting hash', to.hash.substring(1))
+          this.$nextTick(() => {
+            this.scrollToExperience(to.hash.substring(1)); // remove the '#' from the hash
+            //TODO: decide if you want to keep this hash removal
+            window.history.replaceState({}, '', window.location.pathname + window.location.search);
+          });
+        }
+      },
+    },
   }
 });
 </script>
-<style module></style>
+<style module>
+.experienceListItem {
+}
+</style>
 
 
 <!-- - Part 1: Planning In this crucial phase, I meticulously understand project goals,

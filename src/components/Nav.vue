@@ -57,5 +57,5 @@ export default defineComponent({
   transition: 0.15s ease-in-out;
   color: rgb(0, 191, 172);
 }
-/* begin alternate styling for anything below 720px width */
+/* begin alternate styling for anything below 760px width */
 </style>

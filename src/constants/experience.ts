@@ -2,7 +2,7 @@ import type { Experience } from "src/constants/types";
 
 export const ExperienceList: Experience[] = [
   {
-    title: 'Chess.com',
+    employer: 'Chess.com',
     type: 'work',
     position: 'Frontend intern',
     date: 'October 2023 - January 2024',
@@ -12,7 +12,7 @@ export const ExperienceList: Experience[] = [
     ],
   },
   {
-    title: 'NSS',
+    employer: 'NSS',
     type: 'education',
     position: 'Apprentice',
     date: 'January 2023 - June 2023',
@@ -23,7 +23,7 @@ export const ExperienceList: Experience[] = [
     ],
   },
   {
-    title: 'Freelance',
+    employer: 'Freelance',
     type: 'work',
     position: '',
     date: '',

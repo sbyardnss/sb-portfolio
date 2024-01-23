@@ -13,7 +13,7 @@ export interface Project {
 }
 
 export interface Experience {
-  title: string;
+  employer: string;
   type: 'work' | 'education';
   position: string;
   date: string;

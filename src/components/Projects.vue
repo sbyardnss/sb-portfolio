@@ -15,10 +15,10 @@
         </div>
         <div class="flex evenly align-c">
           <p :class="$style.projectPitch">{{ project.pitch }}</p>
-          <div class="flex column">
+          <!-- <div class="flex column">
             <a class="btn-action flex align-c" :href="project.github.frontEnd" target='_blank'>Github Frontend</a>
             <a class="btn-action flex align-c" :href="project.github.backEnd" target='_blank'>Github Backend</a>
-          </div>
+          </div> -->
           <router-link
             class="btn-radial"
             :to="{
@@ -41,6 +41,7 @@ import { defineComponent } from "vue";
 import { ProjectLinks } from "../constants/projects";
 import ProjectDetail from "./ProjectDetail.vue";
 import ImageDisplay from "@/utils/image-display.vue";
+import { dashifyText } from "@/utils/dashify-text";
 
 export default defineComponent({
   name: "ProjectsDisplay",
@@ -55,8 +56,9 @@ export default defineComponent({
   },
   methods: {
     navigateToProject(projectName: string) {
-      const formattedProjectName = projectName.replace(/ /g, "-").toLowerCase();
-      return `${formattedProjectName}`;
+      // const formattedProjectName = projectName.replace(/ /g, "-").toLowerCase();
+      // return `${formattedProjectName}`;
+      return dashifyText(projectName)
     },
   },
   computed: {
