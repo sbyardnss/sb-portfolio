@@ -56,7 +56,13 @@ export const ProjectLinks: Project[] = [
       'Python/Django backend',
       'Custom Django permissions',
     ],
-    images: [],
+    images: [
+      '/assets/carsello_art/art_page.jpeg',
+      '/assets/carsello_art/admin_add_art.jpeg',
+      '/assets/carsello_art/mobile_design_page.jpeg',
+      '/assets/carsello_art/mobile_homepage.jpeg',
+      '/assets/carsello_art/mobile_menu.jpeg',
+    ],
     github: {
       frontEnd: 'https://github.com/sbyardnss/carsello-client',
       backEnd: 'https://github.com/sbyardnss/carsello-server',
@@ -76,7 +82,11 @@ export const ProjectLinks: Project[] = [
       'Vue3',
       'CSS modules',
     ],
-    images: [],
+    images: [
+      '/assets/mastermind/main.jpeg',
+      '/assets/mastermind/solved.jpeg',
+      '/assets/mastermind/in_progress.jpeg',
+    ],
     github: {
       frontEnd: 'https://github.com/sbyardnss/vue-codeBreaker',
       backEnd: '',

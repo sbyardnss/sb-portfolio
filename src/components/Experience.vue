@@ -1,11 +1,11 @@
 <template>
   <div class="light-text">
-    <section class="padded-container-1">
+    <section class="padded-container-1 flex column align-c">
       <h2>Technical Experience</h2>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer" v-for="experience in experienceList"
         class="padded-container-1">
         <div>
-          {{ experience.employer }} - {{ experience.date }}
+          <span class="header">{{ experience.employer }}</span> - <span class="subHeader">{{ experience.date }}</span>
         </div>
         <div>
           {{ experience.position }}
@@ -76,6 +76,7 @@ export default defineComponent({
 </script>
 <style module>
 .experienceListItem {
+  width: 80%;
 }
 </style>
 

@@ -26,6 +26,12 @@ body {
   color: var(--text-color-main);
 }
 
+.header {
+  color: var(--first-color-lighter);
+  font-size: xx-large;
+  font-weight: 500;
+}
+
 .subHeader {
   color: var(--first-color-lighter);
   font-size: large;

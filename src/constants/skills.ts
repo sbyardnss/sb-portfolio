@@ -39,12 +39,6 @@ export const SkillList: Skill[] = [
     aspect: 'frontend',
   },
   {
-    name: 'Bootstrap',
-    devIconLink: 'bootstrap-plain colored',
-    strength: 65,
-    aspect: 'frontend',
-  },
-  {
     name: 'HTML',
     devIconLink: 'html5-plain colored',
     strength: 85,
