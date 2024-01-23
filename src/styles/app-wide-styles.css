@@ -38,11 +38,17 @@ body {
   font-weight: 500;
 }
 
-/* display */
+.text-align-c {
+  text-align: center;
+}
+
+/* display reference and flex reference*/
 .flex {
   display: flex;
 }
-
+.wrap {
+  flex-wrap: wrap;
+}
 .evenly {
   justify-content: space-evenly;
 }
@@ -61,6 +67,10 @@ body {
 
 .align-c {
   align-items: center;
+}
+
+.justify-c {
+  justify-content: center;
 }
 
 /* buttons */
@@ -122,8 +132,8 @@ body {
 }
 
 .btn-action {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   background: #12714c;
   color: #fff;
   text-decoration: none;
@@ -211,6 +221,14 @@ body {
 .w-70 {
   width: 70%;
 }
+
+.w-50 { 
+  width: 50%;
+}
+.w-quarter {
+  width: 25%;
+}
+
 
 /* margins reference */
 .m-l-auto {

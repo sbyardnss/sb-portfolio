@@ -27,7 +27,7 @@
       </div>
       <div :class="$style.sbImage" />
     </section>
-    <div class="flex between align-c">
+    <div class="flex between align-c wrap">
       <SliderWindow />
       <!-- <SkillsDisplay /> -->
       <EmailForm />
