@@ -29,6 +29,7 @@ export default defineComponent({
   data() {
     return {
       emailService: emailjs,
+      env: process.env,
     }
   },
   methods: {
@@ -41,7 +42,8 @@ export default defineComponent({
       for (let pair of formData.entries()) {
         params[pair[0]] = pair[1];
       }
-      this.emailService.send('service_qrsa0q6', 'template_58mrsr8', params, 'OeU7Hg7Fngcx1YL4C')
+      //ENV VARIABLES FOR BELOW
+      this.emailService.send(this.env.VUE_APP_EMAIL_SERVICE_KEY, this.env.VUE_APP_EMAIL_TEMPLATE_KEY, params, this.env.VUE_APP_EMAIL_PUBLIC_KEY)
         .then((result: EmailJSResponseStatus) => {
           console.log('SUCCESS!', result.status, result.text);
           return result;
