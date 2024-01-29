@@ -2,23 +2,20 @@
   <div :class="$style.sliderContainer">
     <div class="flex between">
       <div data-target="#work" @click="handleChangeExperienceView('experienceList')">
-        <!-- <i class="uil uil-briefcase-alt qualification__icon"></i> -->
         <div class="timeline_tab"><span
             :class="displayClass === 'experienceList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Experience</span>
         </div>
       </div>
       <div data-target="#projects" @click="handleChangeExperienceView('projectList')">
-        <!-- <i class="uil uil-graduation-cap qualification__icon"></i> -->
         <div class="timeline_tab"><span
             :class="displayClass === 'projectList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Projects</span>
         </div>
       </div>
-      <div data-target="#skills" @click="handleChangeExperienceView('skillList')">
-        <!-- <i class="uil uil-graduation-cap qualification__icon"></i> -->
+      <!-- <div data-target="#skills" @click="handleChangeExperienceView('skillList')">
         <div class="timeline_tab"><span
             :class="displayClass === 'skillList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Skills</span>
         </div>
-      </div>
+      </div> -->
     </div>
     <div :class="$style.experienceDisplayContainer">
       <div id="experienceSlider" class="timeline_slider" :class="$style[displayClass]">
@@ -26,9 +23,8 @@
           <div class="m-1 p-quarter flex between" :key="experience.date" v-for="experience in myExperience"
             :class="$style.experienceItem">
             <div>
-              <!-- <div class="m-1">{{ experience.employer }} - {{ experience.position }}</div> -->
               <div class="m-1 "><span class="subHeader">{{ experience.employer }}</span>{{ experience.position ? ` - ${experience.position}` : '' }}</div>
-              <div class="m-1">{{ experience.date }}</div>
+              <div class="m-1 headerNotes">{{ experience.date }}</div>
             </div>
             <router-link :to="{
               path: '/experience',
@@ -39,8 +35,13 @@
         </div>
         <div class="timeline_block light-text flex column" data-content id="projects" :class="$style.projectBlock">
           <div :key="project.name" v-for="project in projects" :class="$style.projectItem" class="flex between m-1 p-quarter ">
-            <div class="m-1 subHeader">
-              {{ project.name }}
+            <div class="w-60">
+              <div class="m-1 subHeader">
+                {{ project.name }}
+              </div>
+              <div class="m-1 headerNotes">
+                {{ project.pitch }}
+              </div>
             </div>
             <router-link 
               class="btn-radial-responsive"
@@ -53,11 +54,11 @@
             </router-link>
           </div>
         </div>
-        <div class="timeline_block light-text flex" data-content id="skills" :class="$style.skillBlock">
+        <!-- <div class="timeline_block light-text flex" data-content id="skills" :class="$style.skillBlock">
           <div :key="skill.name" v-for="skill in skillList" :class="$style.skillItem">
             <i class="size-2em" :class="'devicon-' + skill.devIconLink" :title="skill.name"></i>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -103,7 +104,7 @@ export default defineComponent({
 .sliderContainer {
   width: 70vw;
   max-width: 30em;
-  margin: 2em auto;
+  margin: 1em;
 }
 
 .experienceDisplayContainer {

@@ -1,12 +1,14 @@
 <template>
-  
-  <div class="light-text flex column">
-    <span>Skills</span>
+  <div class="light-text flex column" :class="$style.skillsContainer">
+    <div class="timeline_tab text-align-c">
+      <span :class="$style.skillTab">Tech Stack</span>
+    </div>
     <div class="timeline_block light-text flex" data-content id="skills" :class="$style.skillBlock">
       <div :key="skill.name" v-for="skill in skillList" :class="$style.skillItem">
-        <i class="size-2em" :class="'devicon-' + skill.devIconLink"></i>
+        <i class="size-2em" :class="'devicon-' + skill.devIconLink" :title="skill.name"></i>
       </div>
     </div>
+    
   </div>
 </template>
 <script lang="ts">
@@ -23,10 +25,19 @@ export default defineComponent({
 })
 </script>
 <style module>
+.skillsContainer {
+  width: 30em;
+  /* height: 30em; */
+
+}
 
 .skillList {
   transform: translateX(-200%);
 
+}
+
+.skillTab {
+  color: var(--first-color-lighter);
 }
 
 .skillItem {
@@ -35,6 +46,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   padding: 0;
+  margin: 1em 1em .5em 0;
 }
 
 .skillItem .skillTooltip {
@@ -46,10 +58,10 @@ export default defineComponent({
 }
 
 .skillBlock {
-  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 1em 0;
+  margin-left: 1em;
   width: 30em;
+  height: 30em;
 }
 </style>

@@ -3,16 +3,25 @@
     <div class="block">
       <div class="page-header" :class="$style.projectDetailHeader">
         <h1>{{ project?.name }}</h1>
-        <router-link class="btn-action" v-if="project" to="/projects">See all projects</router-link>
+        <a class="btn-radial-responsive" :href="project.url" target='_blank'>See deployed application</a>
+        <!-- <div :class="$style.socialMediaIcon" class="devicon-github-original" /> -->
+        <div class="flex between">
+          <a class="btn-action flex align-c between" :href="project.github.frontEnd" target='_blank'>
+            <div :class="$style.socialMediaIcon" class="devicon-github-original"/>
+            client
+          </a>
+          <a class="btn-action flex align-c between" :href="project.github.backEnd" target='_blank'>
+            <div :class="$style.socialMediaIcon" class="devicon-github-original"/>
+            server
+          </a>
+        </div>
+        <router-link class="btn-danger" v-if="project" to="/projects">back</router-link>
         <!-- <div class="btn-primary" v-if="project" @click="handleNavigateBack">back to all projects</div> -->
       </div>
       <div class="flex between align-c">
         <p :class="$style.projectDescription">{{ project?.description }}</p>
-        <div class="flex column">
-          <a class="btn-radial" :href="project.url" target='_blank'>See deployed application</a>
-          <a class="btn-action flex align-c" :href="project.github.frontEnd" target='_blank'>Github Frontend</a>
-          <a class="btn-action flex align-c" :href="project.github.backEnd" target='_blank'>Github Backend</a>
-        </div>
+      </div>
+      <div class="flex align-c">
       </div>
     </div>
     <div class="radial-btn-container">
@@ -87,5 +96,12 @@ export default defineComponent({
 .projectImagesContainer {
   height: fit-content;
   width: 60%;
+}
+
+.socialMediaIcon {
+  margin-right: .5em;
+  font-size: 1.5em;
+  /* color: var(--first-color-light); */
+  text-decoration: none;
 }
 </style>

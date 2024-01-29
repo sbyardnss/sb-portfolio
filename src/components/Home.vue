@@ -1,5 +1,5 @@
 <template>
-  <div class="padded-container-1 flex column" :class="$style.homePageContainer">
+  <div class="flex column align-c" :class="$style.homePageContainer">
     <div :class="$style.socialMediaLinkContainer" class="flex column between">
       <a href="https://github.com/sbyardnss" target="_blank" :class="$style.socialMediaIcon"
         class="devicon-github-original"></a>
@@ -7,46 +7,48 @@
         class="devicon-linkedin-plain"></a>
       <a :class="$style.socialMediaIcon" @click="handleDownloadResume">CV</a>
     </div>
-    <section class="light-text flex" :class="$style.aboutMe">
-      <div class="flex column" :class="$style.bioNameContainer">
-        <h1 style="width: fit-content;">Hi, I'm Stephen</h1>
-        <div class="flex align-c">
-          <p :class="$style.bio">
-            I'm a full-stack software developer based in Nashville, TN. Driven by a
-            passion for learning, I thrive on mastering new technologies, unraveling
-            complex problems, and continuously expanding my skill set. In every
-            project, I bring not just technical expertise but a mindset fueled by
-            the excitement of exploration and discovery.
-            <br />
-            <br />
-            Join me on this exciting journey, at the intersection of code and creativity,
-            where every project is an opportunity to achieve something
-            extraordinary.
-          </p>
+    <section class="full-container light-text flex center section-margin">
+      <div class="w-90 flex" :class="$style.aboutMe">
+        <div class="flex column" :class="$style.bioNameContainer">
+          <h1 style="width: fit-content;">Hi, I'm Stephen</h1>
+          <div class="flex align-c">
+            <p :class="$style.bio">
+              I'm a full-stack software developer based in Nashville, TN. Driven by a
+              passion for learning, I thrive on mastering new technologies, unraveling
+              complex problems, and continuously expanding my skill set. In every
+              project, I bring not just technical expertise but a mindset fueled by
+              the excitement of exploration and discovery.
+              <br />
+              <br />
+              Join me on this exciting journey, at the intersection of code and creativity,
+              where every project is an opportunity to achieve something
+              extraordinary.
+            </p>
+          </div>
         </div>
+        <div :class="$style.sbImage" />
       </div>
-      <div :class="$style.sbImage" />
     </section>
-    <div class="flex between align-c wrap">
+    <div class="padded-container-1 w-90 flex center align-c wrap">
       <SliderWindow />
-      <!-- <SkillsDisplay /> -->
-      <EmailForm />
+      <SkillsDisplay />
+      <!-- <EmailForm /> -->
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import SliderWindow from "../components/Slider.vue";
-import EmailForm from "./EmailForm.vue";
+// import EmailForm from "./EmailForm.vue";
 import { downloadResume } from "@/utils/download-resume";
-// import SkillsDisplay from "./SkillsDisplay.vue";
+import SkillsDisplay from "./SkillsDisplay.vue";
 
 export default defineComponent({
   name: "HomePage",
   components: {
     SliderWindow,
-    EmailForm,
-    // SkillsDisplay,
+    // EmailForm,
+    SkillsDisplay,
   },
   methods: {
     handleDownloadResume() {
@@ -58,7 +60,8 @@ export default defineComponent({
 <style module>
 .homePageContainer {
   width: 70vw;
-  margin: 2em auto;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -72,7 +75,9 @@ export default defineComponent({
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  padding-right: 4em;
+  margin: 1em;
+
+  /* padding-right: 4em; */
 }
 
 .socialMediaLinkContainer {

@@ -59,6 +59,7 @@ export default defineComponent({
   /* width: 30em;
   height: 30em; */
   /* background-color: blue; */
+  margin: 1em;
 }
 .emailForm {
   width: 30em;

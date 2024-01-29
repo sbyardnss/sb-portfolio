@@ -55,7 +55,8 @@ export default defineComponent({
 }
 .navLink:hover {
   transition: 0.15s ease-in-out;
-  color: rgb(0, 191, 172);
+  /* color: rgb(0, 191, 172); */
+  color: var(--second-color-light);
 }
 /* begin alternate styling for anything below 760px width */
 </style>
