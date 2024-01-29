@@ -1,6 +1,6 @@
 <template>
   <div class="light-text">
-    <section class="padded-container-1 flex column align-c">
+    <section class="flex column align-c">
       <h2>Technical Experience</h2>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer" v-for="experience in experienceList"
         class="padded-container-1">
@@ -13,11 +13,20 @@
         <p>
           {{ experience.description }}
         </p>
+        <ul>
+          <li :key="note" v-for="note in experience.notes">
+            {{ note }}
+          </li>
+        </ul>
       </div>
     </section>
-    <section class="padded-container-1">
+    <section class="flex column align-c">
       <h2>Takeaways</h2>
-      - Part 1: planning - understanding goals - clear outline of functionality
+      <ul class="padded-container-1 m-none" :key="item.title" v-for="item in takeawayList" :class="$style.experienceListItem">
+        <div class="subHeader">{{ item.title }}</div>
+        <p>{{ item.detail }}</p>
+      </ul>
+      <!-- - Part 1: planning - understanding goals - clear outline of functionality
       as much as possible - design mockups - time management? - Part 2:
       organization - consistent file structure - abstraction - inheritance -
       Part 3: knowing worth - My value depends on the skills I bring to the
@@ -25,7 +34,7 @@
       length of time to learn new tech or skills - Part 4: referencing
       documentation for new technologies and processes - Learned paypal via
       requests - Learned how to incorporate cloudinary - Learned how to
-      incorporate openAI - points of improvement
+      incorporate openAI - points of improvement -->
     </section>
     <section class="padded-container-1">
       <h2>Education</h2>
@@ -37,7 +46,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ExperienceList } from "@/constants/experience";
+import { ExperienceList, Takeaways } from "@/constants/experience";
 
 export default defineComponent({
   name: "ExperiencePage",
@@ -45,6 +54,7 @@ export default defineComponent({
   data() {
     return {
       experienceList: ExperienceList,
+      takeawayList: Takeaways,
     }
   },
   methods: {

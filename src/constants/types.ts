@@ -27,3 +27,8 @@ export interface Skill {
   strength: number;
   aspect: 'frontend' | 'backend' | 'general';
 }
+
+export interface Takeaway {
+  title: string;
+  detail: string;
+}

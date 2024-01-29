@@ -7,17 +7,18 @@
         class="devicon-linkedin-plain"></a>
       <a :class="$style.socialMediaIcon" @click="handleDownloadResume">CV</a>
     </div>
-    <section class="full-container light-text flex center section-margin">
+    <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-90 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <h1 style="width: fit-content;">Hi, I'm Stephen</h1>
+          <h1 style="width: fit-content;">Hi, I'm Stephen, a full-stack software developer based in Nashville, TN.</h1>
           <div class="flex align-c">
             <p :class="$style.bio">
-              I'm a full-stack software developer based in Nashville, TN. Driven by a
-              passion for learning, I thrive on mastering new technologies, unraveling
+              <!-- I'm a full-stack software developer based in Nashville, TN.  -->
+              Driven by a
+              <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies, unraveling
               complex problems, and continuously expanding my skill set. In every
               project, I bring not just technical expertise but a mindset fueled by
-              the excitement of exploration and discovery.
+              the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
               <br />
               <br />
               Join me on this exciting journey, at the intersection of code and creativity,
@@ -63,6 +64,10 @@ export default defineComponent({
   margin-left: auto;
   margin-right: auto;
 
+}
+
+.introAndPortrait {
+  padding: 2em 0;
 }
 
 .bioNameContainer {
@@ -114,9 +119,15 @@ export default defineComponent({
   /* width: 100%; */
   text-align: start;
   background: linear-gradient(0.25turn, #090a0f, transparent);
-  font-size: 1em;
+  font-size: x-large;
   font-weight: 100;
   padding: 2em;
+}
+
+.bioHighlight {
+  color: var(--second-color-light);
+  /* font-size: 2em; */
+  font-style: italic;
 }
 </style>
 
