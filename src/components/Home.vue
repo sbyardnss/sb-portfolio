@@ -30,7 +30,7 @@
         <div :class="$style.sbImage" />
       </div>
     </section>
-    <div class="padded-container-1 w-90 flex center align-c wrap">
+    <div class="full-container w-90 flex center align-c wrap">
       <SliderWindow />
       <SkillsDisplay />
       <!-- <EmailForm /> -->

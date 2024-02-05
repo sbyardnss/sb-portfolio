@@ -3,8 +3,9 @@
     <router-link to="/" :class="$style.homeLink">
       <div class="flex evenly align-c">
         <img :class="$style.SBLogo" src="@/assets/sb_logo.svg" alt="My Image">
-        <div>
-          <h1>Stephen Byard</h1>
+        <div :class="$style.nameContainer">
+          <div :class="$style.nameTextA" >Stephen</div>
+          <div :class="$style.nameTextB">Byard</div>
         </div>
       </div>
     </router-link>
@@ -29,11 +30,33 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   background-color: #1a1c1e;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .SBLogo {
   height: 6.5em;
-  margin-left: 1em;
+  /* margin-left: 1em; */
+}
+.nameContainer {
+  color: var(--text-color-vibe);
+  max-width: 20em;
+  max-height: 10em;
+  /* overflow: hidden; */
+}
+.nameTextA {
+  font-size: 3em;
+  margin: 0;
+  font-weight: 900;
+  position: relative;
+  /* top: 0px; */
+  /* left: 50%; */
+}
+.nameTextB {
+  font-size: 3em;
+  margin: 0;
+  font-weight: 100;
+  position: relative;
+  overflow: visible;
+  /* top: -10px; */
 }
 .homeLink {
   cursor: pointer;
@@ -41,9 +64,9 @@ export default defineComponent({
   transition: 0.15s ease-in-out;
 }
 .homeLink:hover {
-  background-color: orange;
+  /* background-color: orange;
 
-  transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out; */
 }
 .navLink {
   margin: 1em;

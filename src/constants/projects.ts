@@ -57,10 +57,10 @@ export const ProjectLinks: Project[] = [
       'Custom Django permissions',
     ],
     images: [
+      '/assets/carsello_art/mobile_homepage.jpeg',
       '/assets/carsello_art/art_page.jpeg',
       '/assets/carsello_art/admin_add_art.jpeg',
       '/assets/carsello_art/mobile_design_page.jpeg',
-      '/assets/carsello_art/mobile_homepage.jpeg',
       '/assets/carsello_art/mobile_menu.jpeg',
     ],
     github: {

@@ -4,7 +4,7 @@ body {
   margin: 0px;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background: radial-gradient(ellipse at bottom, rgb(27, 40, 54) 0%, rgb(9, 10, 15) 100%);
   /* background: radial-gradient(ellipse at bottom, #4473a7 0%, #2b314a 100%); */
   background-attachment: fixed;  /* background-size: 100%; */
 }
@@ -74,6 +74,9 @@ body {
 
 .align-c {
   align-items: center;
+}
+.align-e {
+  align-items: flex-end;
 }
 
 .center {
@@ -227,6 +230,10 @@ body {
 }
 
 /* width */
+.w-fit {
+  width: fit-content;
+}
+
 .w-auto {
   width: auto;
 }
@@ -268,6 +275,10 @@ body {
   margin-left: auto;
 }
 .m-r-auto {
+  margin-right: auto;
+}
+.m-center {
+  margin-left: auto;
   margin-right: auto;
 }
 .m-1 {

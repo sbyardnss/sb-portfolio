@@ -1,33 +1,45 @@
 <template>
   <div class="light-text" :class="$style.projectsContainer">
-    <div v-if="!project" :class="$style.projectList">
-      <h1>Projects</h1>
-      <div 
-        class="flex between light-text align-c"
-        :key="project.name"
-        :class="$style.projectItem"
-        v-for="project in projects">
-        <div class="flex align-c">
-          <div class="flex align-c" :class="$style.projectTitle">
-            {{ project.name }}
+    <div v-if="!project">
+      <h1 class="text-align-c">Projects</h1>
+      <div :class="$style.projectList">
+        <!-- <div 
+          class="flex between light-text align-c"
+          :key="project.name"
+          :class="$style.projectItem"
+          v-for="project in projects">
+          <div class="flex align-c">
+            <div class="flex align-c" :class="$style.projectTitle">
+              {{ project.name }}
+            </div>
+            <ImageDisplay :click-zoom="false" :hover-zoom="false" :image-url="project.images[0]" :image-width="'8em'" :image-class="'imageElement'"/>
           </div>
-          <ImageDisplay :click-zoom="false" :hover-zoom="false" :image-url="project.images[0]" :image-width="'8em'" :image-class="'imageElement'"/>
-        </div>
-        <div class="flex evenly align-c">
-          <p :class="$style.projectPitch">{{ project.pitch }}</p>
-          <!-- <div class="flex column">
-            <a class="btn-action flex align-c" :href="project.github.frontEnd" target='_blank'>Github Frontend</a>
-            <a class="btn-action flex align-c" :href="project.github.backEnd" target='_blank'>Github Backend</a>
-          </div> -->
-          <router-link
-            class="btn-radial"
-            :to="{
-              name: 'ProjectDetail',
-              params: { projectName: navigateToProject(project.name) },
-            }"
-          >
-          See More Details
-          </router-link>
+          <div class="flex evenly align-c">
+            <p :class="$style.projectPitch">{{ project.pitch }}</p>
+            <router-link
+              class="btn-radial"
+              :to="{
+                name: 'ProjectDetail',
+                params: { projectName: formatNameForNavigate(project.name) },
+              }"
+            >
+            See More Details
+            </router-link>
+          </div>
+        </div> -->
+        <div 
+          class="section-margin" 
+          :key="project.name" 
+          v-for="project in projects" 
+          :class="$style.projectListItem" 
+          :style="{ backgroundImage: `url(${project.images[0]})`}"
+          @click="$router.push({
+            name: 'ProjectDetail',
+            params: { projectName: formatNameForNavigate(project.name) }
+          });">
+          <div class="flex column align-c center" :class="$style.projectLIOverlay">
+            <h1 :class="$style.projectLITitle">{{ project.name }}</h1>
+          </div>
         </div>
       </div>
     </div>
@@ -40,14 +52,14 @@
 import { defineComponent } from "vue";
 import { ProjectLinks } from "../constants/projects";
 import ProjectDetail from "./ProjectDetail.vue";
-import ImageDisplay from "@/utils/image-display.vue";
+// import ImageDisplay from "@/utils/image-display.vue";
 import { dashifyText } from "@/utils/dashify-text";
 
 export default defineComponent({
   name: "ProjectsDisplay",
   components: {
     ProjectDetail,
-    ImageDisplay,
+    // ImageDisplay,
   },
   data() {
     return {
@@ -55,7 +67,7 @@ export default defineComponent({
     };
   },
   methods: {
-    navigateToProject(projectName: string) {
+    formatNameForNavigate(projectName: string) {
       // const formattedProjectName = projectName.replace(/ /g, "-").toLowerCase();
       // return `${formattedProjectName}`;
       return dashifyText(projectName)
@@ -90,7 +102,7 @@ h1 {
   width: 80%;
   margin: 0 auto;
 }
-.projectItem {
+/* .projectItem {
   text-decoration: none;
   justify-self: center;
   transition: 0.15s ease-in-out;
@@ -101,6 +113,32 @@ h1 {
   transition: 0.15s ease-in-out;
   border: 1px solid #9a5cba;
   border-radius: 0.5em;
+} */
+
+.projectListItem {
+  height: 16em;
+  width: 24em;
+  background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .2s;
+}
+.projectListItem:hover {
+  transform: scale(1.02);
+}
+.projectLITitle {
+  color: var(--first-color-lighter);
+}
+.projectLIOverlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  backdrop-filter: grayscale(100%);
+}
+.projectListItem:hover .projectLIOverlay {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .projectItem:hover {

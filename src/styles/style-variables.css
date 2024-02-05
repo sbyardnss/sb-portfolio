@@ -3,6 +3,7 @@
   /*========== Colors ==========*/
   /* Change favorite color */
   --hue-color: 250;
+  --vibe-color: 212;
   --text-color: 0;
   --hue-color-2: 170;
   /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
@@ -17,6 +18,8 @@
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
   --title-color: hsl(var(--hue-color), 8%, 15%);
   --text-color-main: hsl(var(--text-color), 0%, 89%);
+
+  --text-color-vibe: hsl(var(--vibe-color), 33%, 40%);
 
   --second-color: hsl(var(--hue-color-2), 73%, 26%);
   --second-color-light: hsl(var(--hue-color-2), 100%, 37%);
