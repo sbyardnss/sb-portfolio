@@ -292,6 +292,10 @@ body {
   margin-bottom: var(--mb-3);
 }
 
+.m-b-2 {
+  margin-bottom: 2em;
+}
+
 /* padding reference */
 .p-quarter {
   padding: .25em;

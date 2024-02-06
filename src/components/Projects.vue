@@ -28,7 +28,6 @@
           </div>
         </div> -->
         <div 
-          class="section-margin" 
           :key="project.name" 
           v-for="project in projects" 
           :class="$style.projectListItem" 
@@ -97,7 +96,7 @@ h1 {
 }
 .projectList {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   width: 80%;
   margin: 0 auto;
@@ -122,12 +121,17 @@ h1 {
   border-radius: 20px;
   overflow: hidden;
   transition: .2s;
+  margin: 1em;
 }
 .projectListItem:hover {
   transform: scale(1.02);
 }
 .projectLITitle {
   color: var(--first-color-lighter);
+  padding: .5em;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
 }
 .projectLIOverlay {
   position: relative;
@@ -139,6 +143,12 @@ h1 {
 }
 .projectListItem:hover .projectLIOverlay {
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.projectListItem:hover .projectLITitle {
+  transition: 0.3s ease-in-out;
+  color: var(--second-color-light);
+  backdrop-filter: blur(1px) grayscale(100%)   transition 0.15s ease-in-out;
 }
 
 .projectItem:hover {

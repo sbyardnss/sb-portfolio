@@ -15,7 +15,8 @@
             server
           </a>
         </div>
-        <router-link class="btn-danger" v-if="project" to="/projects">back</router-link>
+        <!-- <router-link class="btn-danger" v-if="project" to="/projects">back</router-link> -->
+        <div class="btn-danger" v-if="project" @click="handleNavigateBack">back</div>
         <!-- <div class="btn-primary" v-if="project" @click="handleNavigateBack">back to all projects</div> -->
       </div>
       <div class="flex between align-c">
@@ -28,10 +29,10 @@
     </div>
     <div class="flex between align-c">
       <div class="flex evenly" :class="$style.projectImagesContainer">
-        <ImageDisplay :key="url" v-for="url in project.images" :image-url="url" :image-width="'10%'" :hover-zoom="true"
+        <ImageDisplay :key="url" v-for="url in project.images" :image-url="url" :image-height="'8em'" :hover-zoom="true"
           :click-zoom="true" :image-class="'imageElementWithHover'" />
       </div>
-      <ul>
+      <ul :class="$style.techNotesContainer">
         <h2>Tech Notes</h2>
         <li :key="note" v-for="note in project.notes">
           {{ note }}
@@ -70,6 +71,9 @@ export default defineComponent({
   },
   methods: {
     handleNavigateBack() {
+      // let routeToGoBack = { path: -1 }; // Example path
+      // // Return the route object
+      // return routeToGoBack;
       this.$router.go(-1);
     },
   }
@@ -95,9 +99,12 @@ export default defineComponent({
 
 .projectImagesContainer {
   height: fit-content;
-  width: 60%;
+  width: 70%;
 }
 
+.techNotesContainer {
+  width: 25%;
+}
 .socialMediaIcon {
   margin-right: .5em;
   font-size: 1.5em;

@@ -1,7 +1,7 @@
 <template>
-    <img :id="`imageDisplayBasic + ${imageUrl}`" :class="imageClass" :src=imageUrl @click="handleZoomChange" :style="{width: imageWidth,}" :onmouseover="handleHoverZoom" :onmouseout="handleHoverUnzoom"/>
+    <img :id="`imageDisplayBasic + ${imageUrl}`" :class="imageClass" :src=imageUrl @click="handleZoomChange" :style="{height: imageHeight,}" :onmouseover="handleHoverZoom" :onmouseout="handleHoverUnzoom"/>
     <div  v-if="zoomedImage" class="zoomContainer" @click="handleZoomChange" >
-      <img class="zoomedImage" :src="imageUrl" />
+      <img class="zoomedImage" :style="{height: zoomHeight}" :src="imageUrl" />
     </div>
 </template>
 <script lang="ts">
@@ -25,7 +25,7 @@ export default defineComponent({
       required: true,
       default: 'imageElement',
     },
-    imageWidth: {
+    imageHeight: {
       type: String,
       required: true,
     },
@@ -38,6 +38,11 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: true,
+    },
+    zoomHeight: {
+      type: String,
+      required: false,
+      default: '90%',
     }
   },
   methods: {
@@ -82,10 +87,11 @@ export default defineComponent({
 }
 .imageElementWithHover {
   /* width: 10%; */
-  height: auto;
-  object-fit: contain;
+  /* height: auto; */
+  /* object-fit: contain; */
+  object-fit: cover;
   transition: ease-in-out .1s;
-  /* cursor: pointer; */
+  cursor: pointer;
   outline: 1px solid transparent;
 }
 .imageElementWithHover:hover {
@@ -113,7 +119,7 @@ export default defineComponent({
   z-index: 2;
 }
 .zoomedImage {
-  height: 90%;
+  /* height: 90%; */
   margin-left: auto;
   margin-right: auto;
   background-repeat: no-repeat;

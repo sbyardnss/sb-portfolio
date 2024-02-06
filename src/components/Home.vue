@@ -8,7 +8,7 @@
       <a :class="$style.socialMediaIcon" @click="handleDownloadResume">CV</a>
     </div>
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
-      <div class="w-90 flex" :class="$style.aboutMe">
+      <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
           <h1 style="width: fit-content;">Hi, I'm Stephen, a full-stack software developer based in Nashville, TN.</h1>
           <div class="flex align-c">
@@ -16,21 +16,22 @@
               <!-- I'm a full-stack software developer based in Nashville, TN.  -->
               Driven by a
               <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies, unraveling
-              complex problems, and continuously expanding my skill set. In every
-              project, I bring not just technical expertise but a mindset fueled by
+              complex problems, and continuously expanding my skill set.
+              <br /><br />
+              In every project, I bring not just technical expertise but a mindset fueled by
               the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
-              <br />
+              <!-- <br />
               <br />
               Join me on this exciting journey, at the intersection of code and creativity,
               where every project is an opportunity to achieve something
-              extraordinary.
+              extraordinary. -->
             </p>
           </div>
         </div>
         <div :class="$style.sbImage" />
       </div>
     </section>
-    <div class="full-container w-90 flex center align-c wrap">
+    <div class="flex center align-c wrap">
       <SliderWindow />
       <SkillsDisplay />
       <!-- <EmailForm /> -->
@@ -111,7 +112,7 @@ export default defineComponent({
   background-image: url("../assets/faceBio.jpeg");
   background-size: cover;
   background-position-x: center;
-  filter: drop-shadow(1em 1em .5em #090a0f75);
+  /* filter: drop-shadow(1em 1em .5em #090a0f75); */
   border-radius: 10px;
 }
 

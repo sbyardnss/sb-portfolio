@@ -19,6 +19,7 @@ export interface Experience {
   date: string;
   description: string;
   notes: string[];
+  extImageLink: string,
 }
 
 export interface Skill {

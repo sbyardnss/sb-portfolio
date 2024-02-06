@@ -4,11 +4,12 @@
       <h2>Technical Experience</h2>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer" v-for="experience in experienceList"
         class="padded-container-1">
-        <div>
-          <span class="header">{{ experience.employer }}</span> - <span class="subHeader">{{ experience.date }}</span>
+        <div class="flex align-c m-b-2">
+          <img v-if="experience.extImageLink" :class="$style.extImage" :src="experience.extImageLink" />
+          <span class="header">{{ experience.employer }}</span> <span class="subHeader" v-if="experience.date"> - {{ experience.position }}</span>
         </div>
         <div>
-          {{ experience.position }}
+          {{ experience.date }}
         </div>
         <p>
           {{ experience.description }}
@@ -37,9 +38,14 @@
       incorporate openAI - points of improvement -->
     </section>
     <section class="padded-container-1">
-      <h2>Education</h2>
-      <h3>University of Tennessee at Chattanooga</h3>
-      <p>BA, Communication 2013</p>
+      <h2 class="text-align-c">Education</h2>
+      <div class="w-fit m-center flex align-c">
+        <img :style="{height: '5em', marginRight: '2em'}" src="https://upload.wikimedia.org/wikipedia/commons/d/df/University_of_Tennessee_at_Chattanooga_athletics_logo.png" />
+        <div>
+          <h3>University of Tennessee at Chattanooga</h3>
+          <p>BA, Communication 2013</p>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -68,11 +74,8 @@ export default defineComponent({
   watch: {
     $route: {
       immediate: true,
-      handler(to, from) {
-        console.log('to', to)
-        console.log('from', from)
+      handler(to) {
         if (to.hash) {
-          console.log('hitting hash', to.hash.substring(1))
           this.$nextTick(() => {
             this.scrollToExperience(to.hash.substring(1)); // remove the '#' from the hash
             //TODO: decide if you want to keep this hash removal
@@ -87,6 +90,10 @@ export default defineComponent({
 <style module>
 .experienceListItem {
   width: 80%;
+  padding-bottom: 2em;
+}
+.extImage {
+  width: 10em;
 }
 </style>
 

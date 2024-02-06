@@ -1,7 +1,7 @@
 <template>
   <div class="light-text flex evenly padded-container-1">
 
-    <ImageDisplay :image-url="require('../assets/Stephen Byard Resume.jpg')" :image-width="'30%'" :hover-zoom="false" :click-zoom="true" :image-class="'imageElementWithHover'"/>
+    <ImageDisplay :image-url="require('../assets/Stephen Byard Resume.jpg')" :image-height="'40em'" :hover-zoom="false" :click-zoom="true" :zoom-height="'100%'" :image-class="'imageElementWithHover'"/>
     <h2><a class="btn-action" @click="handleDownloadResume">Download PDF</a></h2>
   </div>
 </template>

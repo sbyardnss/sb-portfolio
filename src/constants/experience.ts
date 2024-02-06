@@ -13,6 +13,7 @@ export const ExperienceList: Experience[] = [
       'Developed new frontend platform for admin asset management',
       'Integrated database communication with callbacks provided by the backend team',
     ],
+    extImageLink: 'https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/NathanielGreen/php0hWd9E.png',
   },
   {
     employer: 'NSS',
@@ -22,6 +23,7 @@ export const ExperienceList: Experience[] = [
 
     description: "Engaged in a six-month software bootcamp at Nashville Software School, where I immersed myself in hands-on application of OOP fundamentals through group and individual projects. Proficient in creating single-page applications in JavaScript, particularly using the React framework. I ensured a collaborative and organized development environment through effective source code/version control with Git/Github. My role included solution design through white-boarding and wireframes. Leveraged Django for server-generated web applications, crafted RESTful APIs with Django REST framework, and conducted rigorous testing using Python's unit test framework. Efficiently utilized SQLite for retrieving and storing database information.",
     notes: [],
+    extImageLink: 'https://pbs.twimg.com/media/Da_P725UwAEq649.png',
   },
   {
     employer: 'Freelance',
@@ -33,6 +35,7 @@ export const ExperienceList: Experience[] = [
       'Carsello Art (full stack)',
       'CARE LLC (ongoing)',
     ],
+    extImageLink: '',
   },
 ]
 
@@ -63,6 +66,6 @@ export const Takeaways: Takeaway[] = [
   },
   {
     title: 'Documentation',
-    detail: "Docs are king. Whenever I am faced with a problem I cannot seem to crack, I've learned to immediately reference any official documentation available. While some technologies have better documentation than others, the value of understanding functionality at the source cannot be overstated."
+    detail: "Docs reign supreme. Whenever I am faced with a problem I cannot seem to crack, I've learned to immediately reference any official documentation available. While some technologies have better documentation than others, the value of understanding functionality at the source cannot be overstated."
   }
 ]
