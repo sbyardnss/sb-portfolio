@@ -26,8 +26,10 @@ export default defineComponent({
 </script>
 <style module>
 .skillsContainer {
-  width: 30em;
+  /* width: 30em; */
   /* height: 30em; */
+  width: 70vw;
+  max-width: 30em;
 
 }
 
@@ -61,7 +63,10 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-left: 1em;
-  width: 30em;
+  /* width: 30em;
+  height: 30em; */
+  width: 70vw;
+  max-width: 30em;
   height: 30em;
 }
 </style>
