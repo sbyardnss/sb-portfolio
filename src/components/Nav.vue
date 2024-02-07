@@ -10,56 +10,65 @@
       </div>
     </router-link>
     <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{display: mobileNavDisplay}" class="flex evenly">
-      <div v-if="viewingOnMobile" :class="$style.navLink">Test</div>
+      <div v-if="isMobileView" :class="$style.navLink">Test</div>
       <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
       <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
     </div>
-    <div :class="$style.mobileMenuHamburgerContainer">
+    <div :class="$style.mobileMenuHamburgerContainer" @click="toggleNav">
       <input type="checkbox" id="nav-toggle" :class="$style.active" />
-      <label htmlFor="nav-toggle" :class="$style.hamburgerMenu" @click="toggleMobileMenu">
+      <label htmlFor="nav-toggle" :class="$style.hamburgerMenu" @click="toggleNav">
         <span></span>
       </label>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "NavBar",
+  data() {
+    return {
+      showMobileMenu: ref(false),
+      isMobileView: ref(window.innerWidth <= 768),
+    };
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateIsMobileView)
+  },
+  unmounted() {
+    window.removeEventListener('resize', this.updateIsMobileView);
+  },
   methods: {
     navigateToRoute(route: string) {
       this.$router.push(route);
-      const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
-      navLinkContainerElement.style.display = 'none';
+      const navLinkCheckbox = document.getElementById('nav-toggle') as HTMLInputElement;
+      navLinkCheckbox.checked = false;
+      this.showMobileMenu = false;
     },
-    toggleMobileMenu() {
-      const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
-      if (navLinkContainerElement?.style.display === 'none') {
-        navLinkContainerElement.style.display = 'flex';
-      } else {
-        navLinkContainerElement.style.display = 'none';
-      }
+    updateIsMobileView() {
+      this.isMobileView = window.innerWidth <= 768;
+    },
+    toggleNav() {
+      this.showMobileMenu = !this.showMobileMenu.valueOf();
     },
   },
   computed: {
-    viewingOnMobile() {
-      if (window.innerWidth < 769) {
-        return true;
-      } return false;
-    },
     mobileNavDisplay() {
-      if (this.viewingOnMobile) {
+      if (this.isMobileView && !this.showMobileMenu) {
         return 'none';
-      } return 'flex';
+      } else {
+        return 'flex'
+      }
     }
   },
   watch: {
-    viewingOnMobile(newValue, oldValue) {
+    isMobileView(newValue, oldValue) {
       if (newValue !== oldValue) {
-        const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
-        navLinkContainerElement.style.display = 'none';
+        const navLinkCheckbox = document.getElementById('nav-toggle') as HTMLInputElement;
+        navLinkCheckbox.checked = false;
+        this.showMobileMenu = false;
       }
     },
   }
@@ -158,7 +167,7 @@ export default defineComponent({
     position: absolute;
     top: calc(1em);
     right: 5%;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: .3s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   .hamburgerSpan {
