@@ -9,31 +9,60 @@
         </div>
       </div>
     </router-link>
-    <div class="flex evenly">
-      <router-link to="/projects" :class="$style.navLink">Projects</router-link>
-      <router-link to="/experience" :class="$style.navLink">Experience</router-link>
-      <router-link to="/resume" :class="$style.navLink">Resume</router-link>
+    <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{display: mobileNavDisplay}" class="flex evenly">
+      <div v-if="viewingOnMobile" :class="$style.navLink">Test</div>
+      <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
+      <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
+      <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
     </div>
-    <input type="checkbox" id="nav-toggle" :class="$style.active" />
-    <label htmlFor="nav-toggle" :class="$style.hamburgerMenu">
-      <span></span>
-    </label>
+    <div :class="$style.mobileMenuHamburgerContainer">
+      <input type="checkbox" id="nav-toggle" :class="$style.active" />
+      <label htmlFor="nav-toggle" :class="$style.hamburgerMenu" @click="toggleMobileMenu">
+        <span></span>
+      </label>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "NavBar",
-  setup() {
-    const menuOpen = ref(false);
-
-    function toggleMenu() {
-      menuOpen.value = !menuOpen.value;
-    }
-
-    return { menuOpen, toggleMenu };
+  methods: {
+    navigateToRoute(route: string) {
+      this.$router.push(route);
+      const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
+      navLinkContainerElement.style.display = 'none';
+    },
+    toggleMobileMenu() {
+      const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
+      if (navLinkContainerElement?.style.display === 'none') {
+        navLinkContainerElement.style.display = 'flex';
+      } else {
+        navLinkContainerElement.style.display = 'none';
+      }
+    },
   },
+  computed: {
+    viewingOnMobile() {
+      if (window.innerWidth < 769) {
+        return true;
+      } return false;
+    },
+    mobileNavDisplay() {
+      if (this.viewingOnMobile) {
+        return 'none';
+      } return 'flex';
+    }
+  },
+  watch: {
+    viewingOnMobile(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        const navLinkContainerElement = document.getElementById('navLinkContainer') as HTMLElement;
+        navLinkContainerElement.style.display = 'none';
+      }
+    },
+  }
 });
 </script>
 <style module>
@@ -42,19 +71,16 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   background-color: #1a1c1e;
-  /* overflow: hidden; */
 }
 
 .SBLogo {
   height: 6.5em;
-  /* margin-left: 1em; */
 }
 
 .nameContainer {
   color: var(--text-color-vibe);
   max-width: 20em;
   max-height: 10em;
-  /* overflow: hidden; */
 }
 
 .nameTextA {
@@ -62,8 +88,6 @@ export default defineComponent({
   margin: 0;
   font-weight: 900;
   position: relative;
-  /* top: 0px; */
-  /* left: 50%; */
 }
 
 .nameTextB {
@@ -72,19 +96,12 @@ export default defineComponent({
   font-weight: 100;
   position: relative;
   overflow: visible;
-  /* top: -10px; */
 }
 
 .homeLink {
   cursor: pointer;
   text-decoration: none;
   transition: 0.15s ease-in-out;
-}
-
-.homeLink:hover {
-  /* background-color: orange;
-
-  transition: 0.15s ease-in-out; */
 }
 
 .navLink {
@@ -103,24 +120,34 @@ export default defineComponent({
 
 /* begin alternate styling for anything below 760px width */
 @media (min-width: 769px) {
-  .hamburgerMenu {
+  .mobileMenuHamburgerContainer {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .navLink {
-    display: none;
+  .navLinkContainer {
+    position: absolute;
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+    background-color: black;
   }
 
+  .mobileMenuHamburgerContainer {
+    z-index: 6;
+  }
   .hamburgerMenu {
-    content: '';
     display: inline-block;
     cursor: pointer;
     height: 3em;
     background-color: transparent;
   }
 
+  /* TODO: Why is content needed in this css to show the hamburger menu correctly? */
   .hamburgerMenu span,
   .hamburgerMenu:before,
   .hamburgerMenu:after {
@@ -132,11 +159,9 @@ export default defineComponent({
     top: calc(1em);
     right: 5%;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
   }
 
   .hamburgerSpan {
-    z-index: 10;
     border-bottom: 3px solid rgba(113, 20, 144, 0.909);
   }
   .hamburgerMenu:before {
@@ -145,11 +170,6 @@ export default defineComponent({
 
   .hamburgerMenu:after {
     transform: translateY(10px);
-  }
-
-  .close {
-    z-index: 1;
-    pointer-events: none;
   }
 
   .active:checked+.hamburgerMenu span {
@@ -169,10 +189,5 @@ export default defineComponent({
   .active {
     display: none;
   }
-}
-
-/* Show the menu items when the menu is open */
-.navLink.open {
-  display: block;
 }
 </style>
