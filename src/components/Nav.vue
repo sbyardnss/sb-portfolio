@@ -1,16 +1,17 @@
 <template>
   <div :class="$style.navContainer">
     <router-link to="/" :class="$style.homeLink">
-      <div class="flex evenly align-c">
+      <div class="flex evenly align-c" v-if="!isMobileView">
         <img :class="$style.SBLogo" src="@/assets/sb_logo.svg" alt="My Image">
         <div :class="$style.nameContainer">
           <div :class="$style.nameTextA">Stephen</div>
           <div :class="$style.nameTextB">Byard</div>
         </div>
       </div>
+      <div class="light-text m-1" v-else>SB</div>
     </router-link>
     <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{display: mobileNavDisplay}" class="flex evenly">
-      <div v-if="isMobileView" :class="$style.navLink">Test</div>
+      <div v-if="isMobileView" :class="$style.navLink" @click="navigateToRoute('/')">Home</div>
       <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
       <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
@@ -161,17 +162,13 @@ export default defineComponent({
   .hamburgerMenu:before,
   .hamburgerMenu:after {
     content: '';
-    height: 3em;
     width: 2em;
     border-bottom: 3px solid rgba(113, 20, 144, 0.909);
     position: absolute;
-    top: calc(1em);
-    right: 5%;
+    top: 4%;
+    right: 4%;
     transition: .3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  .hamburgerSpan {
-    border-bottom: 3px solid rgba(113, 20, 144, 0.909);
+    border-radius: 2px;
   }
   .hamburgerMenu:before {
     transform: translateY(-10px);
@@ -186,13 +183,13 @@ export default defineComponent({
   }
 
   .active:checked+.hamburgerMenu:before {
-    border-color: rgba(113, 20, 144, 0.909);
-    transform: rotate(45deg) translate(1em, -.5em);
+    /* border-color: rgba(113, 20, 144, 0.909); */
+    transform: rotate(45deg);
   }
 
   .active:checked+.hamburgerMenu:after {
-    border-color: rgba(113, 20, 144, 0.909);
-    transform: rotate(-45deg) translate(-1em, -.5em);
+    /* border-color: rgba(113, 20, 144, 0.909); */
+    transform: rotate(-45deg);
   }
 
   .active {
