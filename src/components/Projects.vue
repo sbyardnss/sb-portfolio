@@ -3,30 +3,6 @@
     <div v-if="!project">
       <h1 class="text-align-c">Projects</h1>
       <div :class="$style.projectList">
-        <!-- <div 
-          class="flex between light-text align-c"
-          :key="project.name"
-          :class="$style.projectItem"
-          v-for="project in projects">
-          <div class="flex align-c">
-            <div class="flex align-c" :class="$style.projectTitle">
-              {{ project.name }}
-            </div>
-            <ImageDisplay :click-zoom="false" :hover-zoom="false" :image-url="project.images[0]" :image-width="'8em'" :image-class="'imageElement'"/>
-          </div>
-          <div class="flex evenly align-c">
-            <p :class="$style.projectPitch">{{ project.pitch }}</p>
-            <router-link
-              class="btn-radial"
-              :to="{
-                name: 'ProjectDetail',
-                params: { projectName: formatNameForNavigate(project.name) },
-              }"
-            >
-            See More Details
-            </router-link>
-          </div>
-        </div> -->
         <div 
           :key="project.name" 
           v-for="project in projects" 
@@ -51,14 +27,12 @@
 import { defineComponent } from "vue";
 import { ProjectLinks } from "../constants/projects";
 import ProjectDetail from "./ProjectDetail.vue";
-// import ImageDisplay from "@/utils/image-display.vue";
 import { dashifyText } from "@/utils/dashify-text";
 
 export default defineComponent({
   name: "ProjectsDisplay",
   components: {
     ProjectDetail,
-    // ImageDisplay,
   },
   data() {
     return {
@@ -67,8 +41,6 @@ export default defineComponent({
   },
   methods: {
     formatNameForNavigate(projectName: string) {
-      // const formattedProjectName = projectName.replace(/ /g, "-").toLowerCase();
-      // return `${formattedProjectName}`;
       return dashifyText(projectName)
     },
   },
@@ -96,6 +68,8 @@ h1 {
 }
 .projectList {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   /* flex-direction: column; */
   align-items: center;
   width: 80%;
@@ -116,12 +90,13 @@ h1 {
 
 .projectListItem {
   height: 16em;
-  width: 24em;
+  width: 20em;
   background-size: cover;
   border-radius: 20px;
   overflow: hidden;
   transition: .2s;
   margin: 1em;
+  cursor: pointer;
 }
 .projectListItem:hover {
   transform: scale(1.02);

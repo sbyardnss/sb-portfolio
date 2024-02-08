@@ -10,7 +10,7 @@
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <h1 style="width: fit-content;">Hi, I'm Stephen, a full-stack software developer based in Nashville, TN.</h1>
+          <h1 style="width: fit-content;">Hi, I'm Stephen,<br/>a full-stack software developer based in Nashville, TN.</h1>
           <div class="flex align-c">
             <p :class="$style.bio">
               <!-- I'm a full-stack software developer based in Nashville, TN.  -->
@@ -72,7 +72,7 @@ export default defineComponent({
 }
 
 .bioNameContainer {
-  width: 50%;
+  /* width: 80%; */
 }
 
 .aboutMe {
@@ -80,7 +80,7 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  width: 80%;
   margin: 1em;
 
   /* padding-right: 4em; */
@@ -88,12 +88,12 @@ export default defineComponent({
 
 .socialMediaLinkContainer {
   position: absolute;
-  left: 2vw;
+  left: .5em;
 }
 
 .socialMediaIcon {
   margin: .5em .2em;
-  font-size: 2.5em;
+  font-size: 2em;
   color: var(--first-color-faint-2);
   cursor: pointer;
   text-decoration: none;
@@ -118,11 +118,13 @@ export default defineComponent({
 
 .bio {
   /* width: 100%; */
-  text-align: start;
+  /* text-align: start; */
   background: linear-gradient(0.25turn, #090a0f, transparent);
   font-size: x-large;
   font-weight: 100;
   padding: 2em;
+  width: 70%;
+  max-width: 550px;
 }
 
 .bioHighlight {

@@ -121,6 +121,7 @@ export default defineComponent({
   text-decoration: none;
   transition: 0.15s ease-in-out;
   color: whitesmoke;
+  cursor: pointer;
 }
 
 .navLink:hover {
