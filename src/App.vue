@@ -45,18 +45,4 @@ export default defineComponent({
   color: #2c3e50;
   margin: 0px;
 }
-
-#portfolio-container {
-  // height: 100vh;
-}
-
-#routerContainer {
-  // padding: .5em;
-  // height: 90vh;
-  // background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-}
-
-#navContainer {
-  // height: 14vh;
-}
 </style>

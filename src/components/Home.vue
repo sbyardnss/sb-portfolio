@@ -63,10 +63,6 @@ export default defineComponent({
 });
 </script>
 <style module>
-.introAndPortrait {
-  /* padding: 2em 0; */
-}
-
 .aboutMe {
   display: flex;
   flex-wrap: wrap;
