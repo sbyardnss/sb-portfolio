@@ -4,7 +4,9 @@
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <h1 class="w-fit">Hi, I'm Stephen,<br/>a full-stack software developer based in Nashville, TN.</h1>
+          <div class="w-fit responsive-header">Hi, I'm Stephen.
+            <!-- <br/>a full-stack software developer based in Nashville, TN. -->
+          </div>
           <div class="w-fit">
             <p class="responsive-text-large" :class="$style.bio">
               <!-- I'm a full-stack software developer based in Nashville, TN.  -->
@@ -61,13 +63,8 @@ export default defineComponent({
 });
 </script>
 <style module>
-.homePageContainer {
-  /* margin-left: auto;
-  margin-right: auto; */
-}
-
 .introAndPortrait {
-  padding: 2em 0;
+  /* padding: 2em 0; */
 }
 
 .aboutMe {
@@ -77,8 +74,6 @@ export default defineComponent({
   align-items: center;
   width: 80%;
   margin: 1em;
-
-  /* padding-right: 4em; */
 }
 
 
@@ -96,13 +91,9 @@ export default defineComponent({
 }
 
 .bio {
-  /* width: 100%; */
-  /* text-align: start; */
-  background: linear-gradient(0.25turn, #090a0f, transparent);
-  /* font-size: x-large; */
+  /* background: linear-gradient(0.25turn, #090a0f, transparent); */
   font-weight: 100;
-  padding: 2em;
-  /* width: 70%; */
+  /* padding: 2em; */
   max-width: 550px;
 }
 

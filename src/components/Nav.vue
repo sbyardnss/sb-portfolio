@@ -15,6 +15,7 @@
       <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
       <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
+      <SocialMediaIcons v-if="isMobileView"/>
     </div>
     <div :class="$style.mobileMenuHamburgerContainer">
       <input type="checkbox" id="nav-toggle" :class="$style.active" />
@@ -26,9 +27,13 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, inject } from "vue";
+import SocialMediaIcons from "./SocialMedia.vue";
 
 export default defineComponent({
   name: "NavBar",
+  components: {
+    SocialMediaIcons,
+  },
   data() {
     return {
       showMobileMenu: ref(false),
@@ -129,7 +134,7 @@ export default defineComponent({
 
 @media (max-width: 768px) {
   .navLinkContainer {
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     top: 0%;
     left: 0%;

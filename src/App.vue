@@ -1,6 +1,10 @@
 <template>
   <div id="portfolio-container">
-    <Nav id="navContainer" />
+    <Nav 
+      id="navContainer" 
+      @wheel.prevent
+      @touchmove.prevent
+      @scroll.prevent />
     <RouterView :key="$route.fullPath" id="routerContainer" />
   </div>
 </template>

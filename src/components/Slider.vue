@@ -147,7 +147,7 @@ export default defineComponent({
 .projectItem {
   background-color: var(--first-color-faint);
 }
-
+/* 
 .skillList {
   transform: translateX(-200%);
 
@@ -170,18 +170,8 @@ export default defineComponent({
 }
 
 .skillBlock {
-  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 1em 0;
-}
-
-.experienceBlock {
-  /* flex-direction: column; */
-}
-
-.projectBlock {
-  /* align-items: flex-start; */
-  /* flex-direction: column; */
-}
+} */
 </style>

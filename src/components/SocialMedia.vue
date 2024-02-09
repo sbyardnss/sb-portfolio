@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.socialMediaLinkContainer" class="flex column between">
+  <div :class="$style.socialMediaLinkContainer" class="flex between">
       <a href="https://github.com/sbyardnss" target="_blank" :class="$style.socialMediaIcon"
         class="devicon-github-original"></a>
       <a href="https://www.linkedin.com/in/stephen-byard/" target="_blank" :class="$style.socialMediaIcon"
@@ -21,10 +21,6 @@ export default defineComponent({
 })
 </script>
 <style module>
-.socialMediaLinkContainer {
-  position: absolute;
-  left: .5em;
-}
 
 .socialMediaIcon {
   margin: .5em .2em;
@@ -37,4 +33,20 @@ export default defineComponent({
 .socialMediaIcon:hover {
   color: var(--first-color-faint-lighter);
 }
+
+@media (min-width: 769px) {
+  .socialMediaLinkContainer {
+    position: absolute;
+    flex-direction: column;
+    left: .5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .socialMediaLinkContainer {
+    position: absolute;
+    right: 1em;
+  }
+}
+
 </style>
