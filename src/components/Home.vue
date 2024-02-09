@@ -4,23 +4,18 @@
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <div class="w-fit responsive-header">Hi, I'm Stephen.
+          <div class="w-fit" :class="$style.nameHeader">Hi, I'm Stephen.
             <!-- <br/>a full-stack software developer based in Nashville, TN. -->
           </div>
           <div class="w-fit">
             <p class="responsive-text-large" :class="$style.bio">
-              <!-- I'm a full-stack software developer based in Nashville, TN.  -->
               Driven by a
-              <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies, unraveling
+              <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies,
+              unraveling
               complex problems, and continuously expanding my skill set.
               <br /><br />
               In every project, I bring not just technical expertise but a mindset fueled by
               the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
-              <!-- <br />
-              <br />
-              Join me on this exciting journey, at the intersection of code and creativity,
-              where every project is an opportunity to achieve something
-              extraordinary. -->
             </p>
           </div>
         </div>
@@ -28,7 +23,12 @@
       </div>
     </section>
     <div class="flex center align-c wrap w-100">
-      <SliderWindow />
+      <SliderWindow v-if="!isMobileView" />
+      <div v-else :class="$style.mobileHomeLinks">
+        <router-link :to="{
+          path: '/projects',
+        }">Projects </router-link>
+      </div>
       <SkillsDisplay />
       <!-- <EmailForm /> -->
     </div>
@@ -63,19 +63,44 @@ export default defineComponent({
 });
 </script>
 <style module>
+@media (min-width: 769px) {
+  .nameHeader {
+    /* font-size: xx-large; */
+    font-size: 4em;
+    font-weight: 100;
+  }
+  .aboutMe {
+    margin: 1em;
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nameHeader {
+    font-size: 4em;
+    font-weight: 100;
+  }
+  .aboutMe {
+    width: 90%;
+  }
+  .mobileHomeLinks {
+    width: 100%;
+    border: 1px solid green;
+  }
+}
+
 .aboutMe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 80%;
-  margin: 1em;
+  
 }
 
 
 .sbImage {
   font-size: 3vw;
-  width: 25em;
+  width: 100%;
   max-width: 400px;
   max-height: 480px;
   height: 30em;

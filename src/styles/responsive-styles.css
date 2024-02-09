@@ -5,17 +5,10 @@
     font-size: x-large;
   }
 
-  .responsive-header {
-    font-size: xx-large
-  }
 }
 
 @media (max-width: 768px) {
   .responsive-text-large {
     font-size: medium;
-  }
-
-  .responsive-header {
-    font-size: x-large
   }
 }

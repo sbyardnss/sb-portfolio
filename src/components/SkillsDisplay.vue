@@ -1,9 +1,9 @@
 <template>
   <div class="light-text flex column" :class="$style.skillsContainer">
-    <div class="timeline_tab text-align-c">
+    <div class=" text-align-c">
       <span :class="$style.skillTab">Tech Stack</span>
     </div>
-    <div class="timeline_block light-text flex" data-content id="skills" :class="$style.skillBlock">
+    <div class="light-text flex" data-content id="skills" :class="$style.skillBlock">
       <div :key="skill.name" v-for="skill in skillList" :class="$style.skillItem">
         <i class="size-2em" :class="'devicon-' + skill.devIconLink" :title="skill.name"></i>
       </div>
@@ -25,14 +25,17 @@ export default defineComponent({
 })
 </script>
 <style module>
-.skillsContainer {
-  /* width: 30em; */
-  /* height: 30em; */
-  width: 70vw;
-  max-width: 30em;
-
+@media (min-width: 769px) {
+  .skillsContainer {
+    width: 70vw;
+    max-width: 30em;
+  }
 }
-
+@media (max-width: 768px) {
+  .skillsContainer {
+    max-width: 30em;
+  }
+}
 .skillList {
   transform: translateX(-200%);
 
@@ -63,9 +66,6 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-left: 1em;
-  /* width: 30em;
-  height: 30em; */
-  width: 70vw;
   max-width: 30em;
   height: 30em;
 }
