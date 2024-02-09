@@ -1,12 +1,6 @@
 <template>
   <div class="flex column align-c" :class="$style.homePageContainer">
-    <div :class="$style.socialMediaLinkContainer" class="flex column between">
-      <a href="https://github.com/sbyardnss" target="_blank" :class="$style.socialMediaIcon"
-        class="devicon-github-original"></a>
-      <a href="https://www.linkedin.com/in/stephen-byard/" target="_blank" :class="$style.socialMediaIcon"
-        class="devicon-linkedin-plain"></a>
-      <a :class="$style.socialMediaIcon" @click="handleDownloadResume">CV</a>
-    </div>
+    <SocialMediaIcons v-if="!isMobileView" />
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
@@ -39,17 +33,24 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, inject } from "vue";
 import SliderWindow from "../components/Slider.vue";
+import SocialMediaIcons from "./SocialMedia.vue";
 // import EmailForm from "./EmailForm.vue";
 import { downloadResume } from "@/utils/download-resume";
 import SkillsDisplay from "./SkillsDisplay.vue";
 
 export default defineComponent({
   name: "HomePage",
+  data() {
+    return {
+      isMobileView: inject('isMobileView'),
+    }
+  },
   components: {
     SliderWindow,
     // EmailForm,
+    SocialMediaIcons,
     SkillsDisplay,
   },
   methods: {
@@ -80,22 +81,6 @@ export default defineComponent({
   /* padding-right: 4em; */
 }
 
-.socialMediaLinkContainer {
-  position: absolute;
-  left: .5em;
-}
-
-.socialMediaIcon {
-  margin: .5em .2em;
-  font-size: 2em;
-  color: var(--first-color-faint-2);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.socialMediaIcon:hover {
-  color: var(--first-color-faint-lighter);
-}
 
 .sbImage {
   font-size: 3vw;

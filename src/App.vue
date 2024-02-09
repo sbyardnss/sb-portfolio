@@ -1,28 +1,32 @@
 <template>
   <div id="portfolio-container">
-    <Nav
-      id="navContainer" />
-    <RouterView
-      :key="$route.fullPath"
-      id="routerContainer" />
+    <Nav id="navContainer" />
+    <RouterView :key="$route.fullPath" id="routerContainer" />
   </div>
 </template>
 
 <script lang="ts">
-// import { Options, Vue } from 'vue-class-component';
 import Nav from './components/Nav.vue';
-import { defineComponent } from 'vue';
-// @Options({
-//   components: {
-//     Nav,
-//     ProjectsDisplay,
-//   },
-// })
-// export default class App extends Vue {}
+import { defineComponent, ref, provide, onUnmounted } from 'vue';
+
 export default defineComponent({
   name: 'SBPortfolio',
   components: {
     Nav,
+  },
+  setup() {
+    const isMobileView = ref(window.innerWidth <= 768);
+
+    const handleResize = () => {
+      isMobileView.value = window.innerWidth <= 768;
+    };
+
+    window.addEventListener('resize', handleResize);
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize);
+    });
+
+    provide('isMobileView', isMobileView);
   },
 });
 
@@ -41,14 +45,14 @@ export default defineComponent({
 #portfolio-container {
   // height: 100vh;
 }
+
 #routerContainer {
   // padding: .5em;
   // height: 90vh;
   // background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
+
 #navContainer {
   // height: 14vh;
 }
-
-
 </style>

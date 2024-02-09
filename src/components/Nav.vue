@@ -25,21 +25,15 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, inject } from "vue";
 
 export default defineComponent({
   name: "NavBar",
   data() {
     return {
       showMobileMenu: ref(false),
-      isMobileView: ref(window.innerWidth <= 768),
+      isMobileView: inject('isMobileView'),
     };
-  },
-  mounted() {
-    window.addEventListener('resize', this.updateIsMobileView)
-  },
-  unmounted() {
-    window.removeEventListener('resize', this.updateIsMobileView);
   },
   methods: {
     navigateToRoute(route: string) {
@@ -47,9 +41,6 @@ export default defineComponent({
       const navLinkCheckbox = document.getElementById('nav-toggle') as HTMLInputElement;
       navLinkCheckbox.checked = false;
       this.showMobileMenu = false;
-    },
-    updateIsMobileView() {
-      this.isMobileView = window.innerWidth <= 768;
     },
     toggleNav() {
       this.showMobileMenu = !this.showMobileMenu.valueOf();
