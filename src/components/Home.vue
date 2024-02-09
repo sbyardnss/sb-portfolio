@@ -25,9 +25,17 @@
     <div class="flex center align-c wrap w-100">
       <SliderWindow v-if="!isMobileView" />
       <div v-else :class="$style.mobileHomeLinks">
-        <router-link :to="{
+        <!-- <router-link :to="{
           path: '/projects',
-        }">Projects </router-link>
+        }">Projects </router-link> -->
+        <div @click="$router.push('/experience')">
+          <h2 class="light-text">Experience</h2>
+          <div class="subHeader">View my experiences</div>
+        </div>
+        <div @click="$router.push('/projects')">
+          <h2 class="light-text">Projects</h2>
+          <div class="subHeader">View my projects</div>
+        </div>
       </div>
       <SkillsDisplay />
       <!-- <EmailForm /> -->

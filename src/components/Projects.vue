@@ -28,6 +28,7 @@ import { defineComponent } from "vue";
 import { ProjectLinks } from "../constants/projects";
 import ProjectDetail from "./ProjectDetail.vue";
 import { dashifyText } from "@/utils/dashify-text";
+import { scrollToTop } from "@/utils/scroll-to-top";
 
 export default defineComponent({
   name: "ProjectsDisplay",
@@ -38,6 +39,9 @@ export default defineComponent({
     return {
       projects: ProjectLinks,
     };
+  },
+  mounted() {
+    scrollToTop();
   },
   methods: {
     formatNameForNavigate(projectName: string) {

@@ -53,6 +53,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ExperienceList, Takeaways } from "@/constants/experience";
+import { scrollToTop } from "@/utils/scroll-to-top";
 
 export default defineComponent({
   name: "ExperiencePage",
@@ -81,6 +82,8 @@ export default defineComponent({
             //TODO: decide if you want to keep this hash removal
             window.history.replaceState({}, '', window.location.pathname + window.location.search);
           });
+        } else {
+          scrollToTop();
         }
       },
     },

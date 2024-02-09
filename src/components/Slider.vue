@@ -11,11 +11,6 @@
             :class="displayClass === 'projectList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Projects</span>
         </div>
       </div>
-      <!-- <div data-target="#skills" @click="handleChangeExperienceView('skillList')">
-        <div class="timeline_tab"><span
-            :class="displayClass === 'skillList' ? $style.sliderTabSelected : $style.sliderTabUnselected">Skills</span>
-        </div>
-      </div> -->
     </div>
     <div :class="$style.experienceDisplayContainer">
       <div id="experienceSlider" :class="$style[displayClass]">
@@ -59,7 +54,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { ExperienceList } from '@/constants/experience';
-import { SkillList } from '@/constants/skills';
+// import { SkillList } from '@/constants/skills';
 import { ProjectLinks } from '@/constants/projects';
 import { dashifyText } from "@/utils/dashify-text";
 
@@ -68,7 +63,7 @@ export default defineComponent({
   data() {
     return {
       myExperience: ExperienceList,
-      skillList: SkillList,
+      // skillList: SkillList,
       projects: ProjectLinks,
       displayClass: 'experienceList',
       hoveredSkill: '',
