@@ -52,12 +52,6 @@
             </router-link>
           </div>
         </div>
-        <!-- <div class="timeline_block light-text flex" data-content id="skills" :class="$style.skillBlock">
-          <div :key="skill.name" v-for="skill in skillList" :class="$style.skillItem">
-            <i class="size-2em" :class="'devicon-' + skill.devIconLink" :title="skill.name"></i>
-          </div>
-        </div> -->
-
       </div>
     </div>
   </div>
@@ -79,14 +73,6 @@ export default defineComponent({
       displayClass: 'experienceList',
       hoveredSkill: '',
     }
-  },
-  computed: {
-    workExperience() {
-      return this.myExperience.filter(exp => exp.type === 'work');
-    },
-    educationExperience() {
-      return this.myExperience.filter(exp => exp.type === 'education');
-    },
   },
   methods: {
     handleChangeExperienceView(newClass: string) {
@@ -165,9 +151,11 @@ export default defineComponent({
   transition: transform 0.5s ease-out;
 }
 
-
 .experienceList {
   transform: translateX(0);
+}
+.projectList {
+  transform: translateX(-100%);
 }
 
 .experienceItem {
@@ -175,39 +163,8 @@ export default defineComponent({
   align-items: center;
 }
 
-.projectList {
-  transform: translateX(-100%);
-}
 
 .projectItem {
   background-color: var(--first-color-faint);
 }
-
-/* 
-.skillList {
-  transform: translateX(-200%);
-
-}
-
-.skillItem {
-  width: 15%;
-  height: 15%;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-.skillItem .skillTooltip {
-  visibility: hidden;
-}
-
-.skillItem:hover .skillTooltip {
-  visibility: visible;
-}
-
-.skillBlock {
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1em 0;
-} */
 </style>
