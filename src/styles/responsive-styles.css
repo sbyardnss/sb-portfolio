@@ -1,0 +1,13 @@
+/* Text size */
+
+@media (min-width: 769px) {
+  .responsive-text-large {
+    font-size: x-large;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-text-large {
+      font-size: medium;
+    }
+}

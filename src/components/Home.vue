@@ -10,9 +10,9 @@
     <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
       <div class="w-80 flex" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <h1 style="width: fit-content;">Hi, I'm Stephen,<br/>a full-stack software developer based in Nashville, TN.</h1>
-          <div class="flex align-c">
-            <p :class="$style.bio">
+          <h1 class="w-fit">Hi, I'm Stephen,<br/>a full-stack software developer based in Nashville, TN.</h1>
+          <div class="w-fit">
+            <p class="responsive-text-large" :class="$style.bio">
               <!-- I'm a full-stack software developer based in Nashville, TN.  -->
               Driven by a
               <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies, unraveling
@@ -31,7 +31,7 @@
         <div :class="$style.sbImage" />
       </div>
     </section>
-    <div class="flex center align-c wrap">
+    <div class="flex center align-c wrap w-100">
       <SliderWindow />
       <SkillsDisplay />
       <!-- <EmailForm /> -->
@@ -61,18 +61,12 @@ export default defineComponent({
 </script>
 <style module>
 .homePageContainer {
-  width: 70vw;
-  margin-left: auto;
-  margin-right: auto;
-
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .introAndPortrait {
   padding: 2em 0;
-}
-
-.bioNameContainer {
-  /* width: 80%; */
 }
 
 .aboutMe {
@@ -120,10 +114,10 @@ export default defineComponent({
   /* width: 100%; */
   /* text-align: start; */
   background: linear-gradient(0.25turn, #090a0f, transparent);
-  font-size: x-large;
+  /* font-size: x-large; */
   font-weight: 100;
   padding: 2em;
-  width: 70%;
+  /* width: 70%; */
   max-width: 550px;
 }
 

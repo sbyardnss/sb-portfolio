@@ -16,7 +16,7 @@
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
       <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
     </div>
-    <div :class="$style.mobileMenuHamburgerContainer" @click="toggleNav">
+    <div :class="$style.mobileMenuHamburgerContainer">
       <input type="checkbox" id="nav-toggle" :class="$style.active" />
       <label htmlFor="nav-toggle" :class="$style.hamburgerMenu" @click="toggleNav">
         <span></span>
@@ -156,6 +156,9 @@ export default defineComponent({
     cursor: pointer;
     height: 3em;
     background-color: transparent;
+    width: 2em;
+    height: 2em;
+    margin: 1em;
   }
 
   /* TODO: Why is content needed in this css to show the hamburger menu correctly? */
@@ -166,8 +169,8 @@ export default defineComponent({
     width: 2em;
     border-bottom: 3px solid rgba(113, 20, 144, 0.909);
     position: absolute;
-    top: 4%;
-    right: 4%;
+    top: 2em;
+    right: 1em;
     transition: .3s cubic-bezier(0.215, 0.61, 0.355, 1);
     border-radius: 2px;
   }
