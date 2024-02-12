@@ -2,16 +2,20 @@
   <div class="light-text">
     <section class="flex column align-c">
       <h2>Technical Experience</h2>
-      <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer" v-for="experience in experienceList"
-        class="padded-container-1">
-        <div class="flex align-c m-b-2">
-          <img v-if="experience.extImageLink" :class="$style.extImage" :src="experience.extImageLink" />
-          <span class="header">{{ experience.employer }}</span> <span class="subHeader" v-if="experience.date"> - {{ experience.position }}</span>
+      <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer"
+        v-for="experience in experienceList" class="padded-container-1 section-margin">
+        <div :class="$style.experienceItemHeader" class="bottom-header-border align-e between m-b-1">
+          <div class="header">
+            {{ experience.position }}
+          </div>
+          <div class="subheader">{{ experience.ext.image ? '' : experience.employer }}</div>
+          <img v-if="experience.ext.image" :class="$style.extImage" :src="experience.ext.image"
+            @click="handleNavigateToExternalLink(experience.ext.link);" />
         </div>
         <div>
           {{ experience.date }}
         </div>
-        <p>
+        <p class="responsive-text-medium">
           {{ experience.description }}
         </p>
         <ul>
@@ -23,7 +27,8 @@
     </section>
     <section class="flex column align-c">
       <h2>Takeaways</h2>
-      <ul class="padded-container-1 m-none" :key="item.title" v-for="item in takeawayList" :class="$style.experienceListItem">
+      <ul class="padded-container-1 m-none" :key="item.title" v-for="item in takeawayList"
+        :class="$style.experienceListItem">
         <div class="subHeader">{{ item.title }}</div>
         <p>{{ item.detail }}</p>
       </ul>
@@ -40,7 +45,8 @@
     <section class="padded-container-1">
       <h2 class="text-align-c">Education</h2>
       <div class="w-fit m-center flex align-c">
-        <img :style="{height: '5em', marginRight: '2em'}" src="https://upload.wikimedia.org/wikipedia/commons/d/df/University_of_Tennessee_at_Chattanooga_athletics_logo.png" />
+        <img :style="{ height: '5em', marginRight: '2em' }"
+          src="https://upload.wikimedia.org/wikipedia/commons/d/df/University_of_Tennessee_at_Chattanooga_athletics_logo.png" />
         <div>
           <h3>University of Tennessee at Chattanooga</h3>
           <p>BA, Communication 2013</p>
@@ -71,6 +77,9 @@ export default defineComponent({
         refArray[0].scrollIntoView({ behavior: 'smooth' });
       }
     },
+    handleNavigateToExternalLink(url: string) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    },
   },
   watch: {
     $route: {
@@ -91,12 +100,36 @@ export default defineComponent({
 });
 </script>
 <style module>
+@media (min-width: 769px) {
+  .experienceItemHeader {
+    display: flex;
+    /* align-items: flex-end;
+    justify-content: space-between; */
+  }
+
+  .extImage {
+    width: 10em;
+    cursor: pointer;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .experienceItemHeader {
+    display: block;
+  }
+
+  .extImage {
+    width: 7em;
+  }
+  ul {
+    padding-left: 1em;
+  }
+}
+
 .experienceListItem {
   width: 80%;
   padding-bottom: 2em;
-}
-.extImage {
-  width: 10em;
 }
 </style>
 

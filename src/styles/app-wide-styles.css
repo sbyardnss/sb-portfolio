@@ -205,6 +205,12 @@ body {
   margin: 0 auto;
 }
 
+/* border reference */
+.bottom-header-border {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--second-color);
+}
+
 /* width */
 .w-fit {
   width: fit-content;
@@ -266,6 +272,10 @@ body {
 
 .section-margin {
   margin-bottom: var(--mb-3);
+}
+
+.m-b-1 {
+  margin-bottom: 1em;
 }
 
 .m-b-2 {

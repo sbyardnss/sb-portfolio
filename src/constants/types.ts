@@ -19,7 +19,10 @@ export interface Experience {
   date: string;
   description: string;
   notes: string[];
-  extImageLink: string,
+  ext: {
+    link: string;
+    image: string;
+  },
 }
 
 export interface Skill {
