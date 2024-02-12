@@ -45,6 +45,7 @@ export default defineComponent({
 @media (max-width: 768px) {
   .socialMediaLinkContainer {
     position: absolute;
+    flex-direction: column;
     right: 1em;
   }
 }

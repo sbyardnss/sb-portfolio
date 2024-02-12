@@ -24,19 +24,7 @@
     </section>
     <div class="flex center align-c wrap w-100">
       <SliderWindow v-if="!isMobileView" />
-      <div v-else :class="$style.mobileHomeLinks">
-        <!-- <router-link :to="{
-          path: '/projects',
-        }">Projects </router-link> -->
-        <div @click="$router.push('/experience')">
-          <h2 class="light-text">Experience</h2>
-          <div class="subHeader">View my experiences</div>
-        </div>
-        <div @click="$router.push('/projects')">
-          <h2 class="light-text">Projects</h2>
-          <div class="subHeader">View my projects</div>
-        </div>
-      </div>
+      <MobileHomeLinks v-else />
       <SkillsDisplay />
       <!-- <EmailForm /> -->
     </div>
@@ -44,6 +32,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, inject } from "vue";
+import MobileHomeLinks from "./MobileHomeLinks.vue";
 import SliderWindow from "../components/Slider.vue";
 import SocialMediaIcons from "./SocialMedia.vue";
 // import EmailForm from "./EmailForm.vue";
@@ -59,6 +48,7 @@ export default defineComponent({
   },
   components: {
     SliderWindow,
+    MobileHomeLinks,
     // EmailForm,
     SocialMediaIcons,
     SkillsDisplay,
@@ -90,10 +80,6 @@ export default defineComponent({
   }
   .aboutMe {
     width: 90%;
-  }
-  .mobileHomeLinks {
-    width: 100%;
-    border: 1px solid green;
   }
 }
 
