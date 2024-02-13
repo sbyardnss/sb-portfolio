@@ -1,11 +1,10 @@
 <template>
   <div class="flex column align-c" :class="$style.homePageContainer">
     <SocialMediaIcons v-if="!isMobileView" />
-    <section class="full-container light-text flex center section-margin" :class="$style.introAndPortrait">
-      <div class="w-80 flex" :class="$style.aboutMe">
+    <section class="full-container light-text" :class="$style.introAndPortrait">
+      <div class="w-80" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
           <div class="w-fit" :class="$style.nameHeader">Hi, I'm Stephen.
-            <!-- <br/>a full-stack software developer based in Nashville, TN. -->
           </div>
           <div class="w-fit">
             <p class="responsive-text-large" :class="$style.bio">
@@ -18,14 +17,18 @@
               the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
             </p>
           </div>
+          
+          <!-- <MobileHomeLinks v-if="!isMobileView" /> -->
         </div>
         <div :class="$style.sbImage" />
       </div>
+      
     </section>
+    <!-- <MobileHomeLinks v-if="!isMobileView" /> -->
     <div class="flex center align-c wrap w-100">
-      <SliderWindow v-if="!isMobileView" />
-      <MobileHomeLinks v-else />
-      <SkillsDisplay />
+      <MobileHomeLinks />
+      <!-- <SliderWindow v-if="!isMobileView" /> -->
+      <!-- <SkillsDisplay /> -->
       <!-- <EmailForm /> -->
     </div>
   </div>
@@ -33,11 +36,11 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
 import MobileHomeLinks from "./MobileHomeLinks.vue";
-import SliderWindow from "../components/Slider.vue";
+// import SliderWindow from "../components/Slider.vue";
 import SocialMediaIcons from "./SocialMedia.vue";
 // import EmailForm from "./EmailForm.vue";
 import { downloadResume } from "@/utils/download-resume";
-import SkillsDisplay from "./SkillsDisplay.vue";
+// import SkillsDisplay from "./SkillsDisplay.vue";
 
 export default defineComponent({
   name: "HomePage",
@@ -47,11 +50,11 @@ export default defineComponent({
     }
   },
   components: {
-    SliderWindow,
+    // SliderWindow,
     MobileHomeLinks,
     // EmailForm,
     SocialMediaIcons,
-    SkillsDisplay,
+    // SkillsDisplay,
   },
   methods: {
     handleDownloadResume() {
@@ -62,14 +65,27 @@ export default defineComponent({
 </script>
 <style module>
 @media (min-width: 769px) {
+  .homePageContainer {
+    padding-top: 1em;
+  }
+
   .nameHeader {
     /* font-size: xx-large; */
     font-size: 4em;
     font-weight: 100;
   }
+
   .aboutMe {
-    margin: 1em;
-    width: 80%;
+    /* height: fit-content; */
+    /* min-height: fit-content; */
+    /* width: 80%; */
+  }
+
+  .sbImage {
+    width: 10em;
+    height: 12em;
+    max-width: 500px;
+    background-size: cover;
   }
 }
 
@@ -78,8 +94,18 @@ export default defineComponent({
     font-size: 4em;
     font-weight: 100;
   }
+
   .aboutMe {
     width: 90%;
+    height: fit-content;
+  }
+
+  .sbImage {
+    width: calc((20/11) * 17em);
+    height: calc((20/11) * 15em);
+    max-height: 300px;
+    max-width: 400px;
+    background-size: cover;
   }
 }
 
@@ -88,34 +114,33 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  
+
 }
 
 
 .sbImage {
   font-size: 3vw;
-  width: 100%;
-  max-width: 400px;
-  max-height: 480px;
-  height: 30em;
   background-image: url("../assets/faceBio.jpeg");
-  background-size: cover;
   background-position-x: center;
-  /* filter: drop-shadow(1em 1em .5em #090a0f75); */
   border-radius: 10px;
 }
 
 .bio {
-  /* background: linear-gradient(0.25turn, #090a0f, transparent); */
   font-weight: 100;
-  /* padding: 2em; */
   max-width: 550px;
 }
 
 .bioHighlight {
   color: var(--second-color-light);
-  /* font-size: 2em; */
   font-style: italic;
+}
+
+.introAndPortrait {
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
 }
 </style>
 

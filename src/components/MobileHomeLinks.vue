@@ -25,12 +25,29 @@ export default defineComponent({
 </script>
 
 <style module>
-.mobileHomeLinks {
-  width: 100%;
+@media (max-width: 768px) {
+  .mobileHomeMenuItem {
+    margin: 0 auto 1em auto;
+  }
+
+  .mobileHomeLinks {
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 769px) {
+  .mobileHomeMenuItem {
+    margin: 0 auto 1em auto;
+  }
+
+  .mobileHomeLinks {
+    width: 50%;
+  }
 }
 
 .mobileHomeMenuItem {
-  margin: 0 auto 1em auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;

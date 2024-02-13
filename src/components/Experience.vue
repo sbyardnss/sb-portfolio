@@ -3,7 +3,7 @@
     <section class="flex column align-c">
       <h2>Technical Experience</h2>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer"
-        v-for="experience in experienceList" class="padded-container-1 section-margin">
+        v-for="experience in experienceList" class="padded-container-1">
         <div :class="$style.experienceItemHeader" class="bottom-header-border align-e between m-b-1">
           <div class="header">
             {{ experience.position }}
@@ -130,6 +130,7 @@ export default defineComponent({
 .experienceListItem {
   width: 80%;
   padding-bottom: 2em;
+  margin-bottom: 2em;
 }
 </style>
 

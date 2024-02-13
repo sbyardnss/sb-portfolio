@@ -23,11 +23,9 @@ export default defineComponent({
   },
 });
 </script>
-<style module>
-.resumeImage {
+<style module>.resumeImage {
   background-image: url('../assets/Stephen Byard Resume.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   height: 100em;
-}
-</style>
+}</style>
