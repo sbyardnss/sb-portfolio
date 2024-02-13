@@ -4,7 +4,7 @@
     <section class="full-container light-text" :class="$style.introAndPortrait">
       <div class="w-80" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
-          <div class="w-fit" :class="$style.nameHeader">Hi, I'm Stephen.
+          <div :class="$style.nameHeader">Hi, I'm Stephen.
           </div>
           <div class="w-fit">
             <p class="responsive-text-large" :class="$style.bio">
@@ -98,6 +98,7 @@ export default defineComponent({
 
   .aboutMe {
     width: 90%;
+    flex-wrap: wrap;
     height: fit-content;
   }
 
@@ -112,7 +113,6 @@ export default defineComponent({
 
 .aboutMe {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 
@@ -129,6 +129,7 @@ export default defineComponent({
 .bio {
   font-weight: 100;
   max-width: 550px;
+  width: 90%;
 }
 
 .bioHighlight {

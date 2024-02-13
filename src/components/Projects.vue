@@ -12,7 +12,7 @@
             name: 'ProjectDetail',
             params: { projectName: formatNameForNavigate(project.name) }
           });">
-          <div class="flex column align-c" :class="$style.projectLIOverlay">
+          <div class="flex" :class="$style.projectLIOverlay">
             <h1 :class="$style.projectLITitle">{{ project.name }}</h1>
             <div class="padded-container-1 flex" :class="$style.projectSkillContainer">
               <div :key="skill" v-for="skill in project.tech">
@@ -110,6 +110,8 @@ h1 {
   padding: .5em;
   border-radius: 4px;
   transition: 0.15s ease-in-out;
+  background-color: black;
+  height: fit-content;
 
 }
 .projectLIOverlay {

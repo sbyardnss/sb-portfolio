@@ -33,6 +33,7 @@ export default defineComponent({
 
   .mobileHomeLinks {
     width: 100%;
+
   }
 
 }
@@ -51,12 +52,12 @@ export default defineComponent({
   }
 
   .mobileHomeMenuItem {
-    margin: 0 auto 1em auto;
+    /* margin: 0 auto 1em auto; */
     width: 40%;
-    min-width: fit-content;
+    min-width: 208px;
     height: 30%;
     cursor: pointer;
-
+    margin-bottom: 1em;
   }
 
   .mobileHomeMenuItem:hover {
@@ -70,6 +71,9 @@ export default defineComponent({
 
   .mobileHomeLinks {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
   }
 }
 
