@@ -15,10 +15,10 @@
         <div>
           {{ experience.date }}
         </div>
-        <p class="responsive-text-medium">
+        <p>
           {{ experience.description }}
         </p>
-        <ul>
+        <ul class="responsive-text-medium">
           <li :key="note" v-for="note in experience.notes">
             {{ note }}
           </li>
@@ -45,8 +45,9 @@
     <section class="padded-container-1">
       <h2 class="text-align-c">Education</h2>
       <div class="w-fit m-center flex align-c">
-        <img :style="{ height: '5em', marginRight: '2em' }"
-          src="https://upload.wikimedia.org/wikipedia/commons/d/df/University_of_Tennessee_at_Chattanooga_athletics_logo.png" />
+        <img :style="{ height: '5em', marginRight: '2em', cursor: 'pointer' }"
+          src="https://upload.wikimedia.org/wikipedia/commons/d/df/University_of_Tennessee_at_Chattanooga_athletics_logo.png" 
+          @click="handleNavigateToExternalLink('https://www.utc.edu/')"/>
         <div>
           <h3>University of Tennessee at Chattanooga</h3>
           <p>BA, Communication 2013</p>

@@ -63,6 +63,7 @@ export default defineComponent({
     background: var(--first-color-faint-2);
     transition: 0.1s ease-in-out;
   }
+
   .mobileHomeMenuItem:hover .arrowIcon {
     animation: move 0.6s ease-in-out 3;
   }
@@ -78,7 +79,6 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   background: var(--first-color-faint);
-  /* width: 90%; */
   border-radius: 4px;
 }
 
@@ -86,4 +86,5 @@ export default defineComponent({
   filter: invert(.5);
   width: 2em;
   margin-right: .5em;
-}</style>
+}
+</style>

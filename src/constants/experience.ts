@@ -31,7 +31,7 @@ export const ExperienceList: Experience[] = [
     date: 'January 2023 - June 2023',
 
     // description: "Engaged in a six-month software bootcamp at Nashville Software School, where I immersed myself in hands-on application of OOP fundamentals through group and individual projects. Proficient in creating single-page applications in JavaScript, particularly using the React framework. I ensured a collaborative and organized development environment through effective source code/version control with Git/Github. My role included solution design through white-boarding and wireframes. Leveraged Django for server-generated web applications, crafted RESTful APIs with Django REST framework, and conducted rigorous testing using Python's unit test framework. Efficiently utilized SQLite for retrieving and storing database information.",
-    description: "Six-month full-time full stack software development bootcamp",
+    description: "Six-month full-time software development bootcamp resulting in full stack certification.",
     notes: [
       'Daily hands on application of OOP fundamentals through group and individual projects',
       'Created single page applications in JavaScript, regularly utilizing the React framework Source code/version control with Git/Github',
@@ -41,7 +41,7 @@ export const ExperienceList: Experience[] = [
       "Practiced testing with Python's unit test framework",
     ],
     ext: {
-      link: '',
+      link: 'https://nashvillesoftwareschool.com/',
       image: 'https://pbs.twimg.com/media/Da_P725UwAEq649.png',
     },
   },
