@@ -16,6 +16,7 @@
               In every project, I bring not just technical expertise but a mindset fueled by
               the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
             </p>
+            <MobileHomeLinks v-if="!isMobileView"/>
           </div>
           
           <!-- <MobileHomeLinks v-if="!isMobileView" /> -->
@@ -26,7 +27,7 @@
     </section>
     <!-- <MobileHomeLinks v-if="!isMobileView" /> -->
     <div class="flex center align-c wrap w-100">
-      <MobileHomeLinks />
+      <MobileHomeLinks v-if="isMobileView"/>
       <!-- <SliderWindow v-if="!isMobileView" /> -->
       <!-- <SkillsDisplay /> -->
       <!-- <EmailForm /> -->
