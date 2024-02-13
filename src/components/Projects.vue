@@ -12,8 +12,13 @@
             name: 'ProjectDetail',
             params: { projectName: formatNameForNavigate(project.name) }
           });">
-          <div class="flex column align-c center" :class="$style.projectLIOverlay">
+          <div class="flex column align-c" :class="$style.projectLIOverlay">
             <h1 :class="$style.projectLITitle">{{ project.name }}</h1>
+            <div class="padded-container-1 flex" :class="$style.projectSkillContainer">
+              <div :key="skill" v-for="skill in project.tech">
+                <i class="size-2em" :class="'devicon-' + skill"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -63,38 +68,33 @@ export default defineComponent({
 });
 </script>
 <style module>
-/* .projectsContainer {
-
-} */
+@media (min-width: 769px) {
+  .projectListItem {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .projectListItem {
+    width: 20em;
+  }
+}
 h1 {
   padding: 1em;
   margin: 0;
 }
 .projectList {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   justify-content: space-evenly;
   /* flex-direction: column; */
   align-items: center;
   width: 80%;
   margin: 0 auto;
 }
-/* .projectItem {
-  text-decoration: none;
-  justify-self: center;
-  transition: 0.15s ease-in-out;
-  background: #2c1b35;
-  width: 100%;
-  height: 20em;
-  margin-bottom: 1em;
-  transition: 0.15s ease-in-out;
-  border: 1px solid #9a5cba;
-  border-radius: 0.5em;
-} */
 
 .projectListItem {
   height: 16em;
-  width: 20em;
   background-size: cover;
   border-radius: 20px;
   overflow: hidden;
@@ -114,6 +114,7 @@ h1 {
 }
 .projectLIOverlay {
   position: relative;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -130,25 +131,30 @@ h1 {
   backdrop-filter: blur(1px) grayscale(100%)   transition 0.15s ease-in-out;
 }
 
-.projectItem:hover {
+.projectSkillContainer {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+/* .projectItem:hover {
   transition: 0.15s ease-in-out;
   background: #533165;
-}
-.projectTitle {
+} */
+/* .projectTitle {
   margin: 1em;
   font-size: X-large;
   font-weight: lighter;
   color: whitesmoke;
-}
+} */
 
-.demoImage {
+/* .demoImage {
   height: 90%;
-}
-.projectPitch {
+} */
+/* .projectPitch {
   width: 30%;
   height: fit-content;
   align-self: center;
-}
+} */
 
 /* .projectTitle:hover {
   transition: 0.15s ease-in-out;

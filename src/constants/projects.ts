@@ -36,6 +36,11 @@ export const ProjectLinks: Project[] = [
       frontEnd: 'https://github.com/sbyardnss/villager-client',
       backEnd: 'https://github.com/sbyardnss/villager-server',
     },
+    tech: [
+      'react-original colored', 
+      'python-plain colored',
+      'django-plain',
+    ],
   },
   {
     name: "Carsello Art",
@@ -67,6 +72,11 @@ export const ProjectLinks: Project[] = [
       frontEnd: 'https://github.com/sbyardnss/carsello-client',
       backEnd: 'https://github.com/sbyardnss/carsello-server',
     },
+    tech: [
+      'react-original colored', 
+      'python-plain colored',
+      'django-plain',
+    ],
   },
   {
     name: "Mastermind",
@@ -91,5 +101,8 @@ export const ProjectLinks: Project[] = [
       frontEnd: 'https://github.com/sbyardnss/vue-codeBreaker',
       backEnd: '',
     },
+    tech: [
+      'vuejs-plain colored',
+    ]
   },
 ];

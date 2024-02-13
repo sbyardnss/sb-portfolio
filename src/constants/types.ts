@@ -10,6 +10,7 @@ export interface Project {
     frontEnd: string,
     backEnd: string,
   };
+  tech: string[],
 }
 
 export interface Experience {
