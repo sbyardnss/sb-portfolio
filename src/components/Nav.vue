@@ -1,14 +1,15 @@
 <template>
   <div :class="$style.navContainer">
     <router-link to="/" :class="$style.homeLink">
-      <div class="flex evenly align-c" v-if="!isMobileView">
-        <img :class="$style.SBLogo" src="@/assets/sb_logo.svg" alt="My Image">
+      <div class="flex evenly align-e">
+        <img :class="$style.SBLogo" src="@/assets/SbLogo.svg" alt="My Image">
         <div :class="$style.nameContainer">
-          <div :class="$style.nameTextA">Stephen</div>
-          <div :class="$style.nameTextB">Byard</div>
+          <!-- <div class="subHeader">Stephen Byard</div> -->
+          <!-- <div class="subHeader">Stephen</div>
+          <div class="subHeader">Byard</div> -->
         </div>
       </div>
-      <div class="light-text m-1" v-else>SB</div>
+      <!-- <div class="light-text m-1" v-else>SB</div> -->
     </router-link>
     <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{display: mobileNavDisplay}" class="flex evenly">
       <div v-if="isMobileView" :class="$style.navLink" @click="navigateToRoute('/')">Home</div>
@@ -76,11 +77,13 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1c1e;
+  /* background-color: #1a1c1e; */
 }
 
 .SBLogo {
-  height: 6.5em;
+  height: 4.5em;
+  margin: 0 1em;
+  /* filter: invert(50%); */
 }
 
 .nameContainer {

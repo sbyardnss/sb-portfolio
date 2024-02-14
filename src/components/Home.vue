@@ -1,7 +1,7 @@
 <template>
   <div class="flex column align-c" :class="$style.homePageContainer">
     <SocialMediaIcons v-if="!isMobileView" />
-    <section class="full-container light-text" :class="$style.introAndPortrait">
+    <section class="light-text" :class="$style.introAndPortrait">
       <div class="w-80" :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
           <div :class="$style.nameHeader">Hi, I'm Stephen.
@@ -67,7 +67,9 @@ export default defineComponent({
 <style module>
 @media (min-width: 769px) {
   .homePageContainer {
-    padding-top: 1em;
+    /* padding-top: 2em; */
+    height: 90vh;
+    justify-content: center;
   }
 
   .nameHeader {
@@ -143,6 +145,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   margin-bottom: 1em;
+  width: 100vw;
 }
 </style>
 
