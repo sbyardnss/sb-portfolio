@@ -2,7 +2,7 @@
   <div class="flex column align-c" :class="$style.homePageContainer">
     <SocialMediaIcons v-if="!isMobileView" />
     <section class="light-text" :class="$style.introAndPortrait">
-      <div class="w-80" :class="$style.aboutMe">
+      <div :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
           <div :class="$style.nameHeader">Hi, I'm Stephen.
           </div>
@@ -81,7 +81,7 @@ export default defineComponent({
   .aboutMe {
     /* height: fit-content; */
     /* min-height: fit-content; */
-    /* width: 80%; */
+    width: 80%;
   }
 
   .sbImage {
@@ -131,7 +131,7 @@ export default defineComponent({
 .bio {
   font-weight: 100;
   max-width: 550px;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .bioHighlight {

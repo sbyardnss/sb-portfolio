@@ -6,6 +6,14 @@
   --vibe-color: 212;
   --text-color: 0;
   --hue-color-2: 170;
+
+
+  --logo-yellow-hue: 65;
+  --logo-yellow-color: hsl(var(--logo-yellow-hue), 65%, 52%);
+
+  --logo-green-hue: 170;
+  --logo-green-color: hsl(var(--logo-green-hue), 100%, 37%);
+
   /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
   /* HSL color mode */
   --first-color: hsl(var(--hue-color), 69%, 61%);
