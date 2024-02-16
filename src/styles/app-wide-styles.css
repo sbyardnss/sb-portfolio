@@ -201,11 +201,6 @@ body {
   width: fit-content;
 }
 
-.centered-container-w70 {
-  width: 70%;
-  margin: 0 auto;
-}
-
 /* border reference */
 .bottom-header-border {
   padding-bottom: 1em;
