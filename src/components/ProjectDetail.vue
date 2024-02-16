@@ -6,16 +6,13 @@
           <div :class="$style.projectName">{{ project?.name }}</div>
           <div class="btn-danger" v-if="isMobileView" @click="handleNavigateBack">back</div>
         </div>
-        <a class="btn-radial-responsive" :href="project.url" target='_blank'>See deployed application</a>
+        <div>
+          <a class="btn-radial-responsive" :href="project.url" target='_blank'>Visit Site</a>
+        </div>
         <div class="flex between">
-          <a class="btn-action flex align-c between" :href="project.github.frontEnd" target='_blank'>
-            <div :class="$style.socialMediaIcon" class="devicon-github-original"/>
-            client
-          </a>
-          <a class="btn-action flex align-c between" :href="project.github.backEnd" target='_blank'>
-            <div :class="$style.socialMediaIcon" class="devicon-github-original"/>
-            server
-          </a>
+          <GithubLinks 
+            :front-end-link="project.github.frontEnd"
+            :back-end-link="project.github.backEnd" />
         </div>
         <div class="btn-danger" v-if="!isMobileView" @click="handleNavigateBack">back</div>
       </div>
@@ -28,9 +25,9 @@
     <div class="radial-btn-container">
     </div>
     <div class="flex align-c" :class="$style.imagesAndNotesContainer">
-      <div class="flex evenly" :class="$style.projectImagesContainer">
-        <ImageDisplay :class="$style.projectImage" :key="url" v-for="url in project.images" :image-url="url" :image-height="'8em'" :hover-zoom="true"
-          :click-zoom="true" :image-class="'imageElementWithHover'" />
+      <div class="flex" :class="$style.projectImagesContainer">
+        <ImageDisplay :key="url" v-for="url in project.images" :image-url="url"
+          :image-height="'8em'" :hover-zoom="true" :click-zoom="true" :image-class="'imageElementWithHover'" />
       </div>
       <ul :class="$style.techNotesContainer">
         <h2>Tech Notes</h2>
@@ -49,6 +46,7 @@
 </template>
 <script lang="ts">
 import ImageDisplay from '../utils/image-display.vue';
+import GithubLinks from './GithubLinks.vue';
 import { defineComponent, inject } from "vue";
 import type { PropType } from "vue";
 import type { Project } from "@/constants/types";
@@ -57,6 +55,7 @@ export default defineComponent({
   name: "ProjectDetail",
   components: {
     ImageDisplay,
+    GithubLinks,
   },
   data() {
     return {
@@ -88,7 +87,7 @@ export default defineComponent({
 }
 
 .projectDescription {
-  width: 70%;
+  /* width: 70%; */
   background: linear-gradient(0.25turn, #090a0f, transparent);
   padding: 2em;
 }
@@ -99,14 +98,12 @@ export default defineComponent({
   overflow: scroll;
 }
 
-.techNotesContainer {
-  width: 25%;
-}
-.socialMediaIcon {
+
+/* .socialMediaIcon {
   margin-right: .5em;
   font-size: 1.5em;
   text-decoration: none;
-}
+} */
 
 @media (min-width: 769px) {
   .projectDetailContainer {
@@ -116,42 +113,67 @@ export default defineComponent({
     background-color: rgb(0, 0, 0, .2);
     z-index: 10;
   }
+
   .projectName {
     font-size: xx-large;
   }
+
   .imagesAndNotesContainer {
     justify-content: space-between;
   }
+
   .projectImagesContainer {
     height: 12em;
     align-items: center;
   }
+
+  .projectDescription {
+    width: 70%;
+  }
+
+  .techNotesContainer {
+    width: 25%;
+  }
 }
+
 @media (max-width: 768px) {
   .projectDetailContainer {
     width: 100%;
+    padding-bottom: 1em;
   }
 
   .projectDetailHeader {
     flex-direction: column;
   }
+
   .projectName {
     font-size: x-large;
   }
+
+  .projectDescription {
+    width: 90%;
+  }
+  .techNotesContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
   .imagesAndNotesContainer {
     flex-wrap: wrap;
   }
+
   .projectImagesContainer {
     width: 90%;
     overflow: scroll;
     justify-content: flex-start;
     margin-left: 1em;
   }
-  .projectImage {
-    width: fit-content;
-  }
+
   .featuresList {
     width: 90%;
+    margin: 0 auto;
   }
 }
 </style>

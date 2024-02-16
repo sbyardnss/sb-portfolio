@@ -50,6 +50,18 @@ export default defineComponent({
     },
     toggleNav() {
       this.showMobileMenu = !this.showMobileMenu.valueOf();
+      this.disableScrollEvents();
+    },
+    disableScrollEvents() {
+      const navContainer = document.getElementById('navContainer');
+      if (navContainer) {
+        navContainer.addEventListener('wheel', this.handlePrevent, { passive: false });
+        navContainer.addEventListener('touchmove', this.handlePrevent, { passive: false });
+        navContainer.addEventListener('scroll', this.handlePrevent, { passive: false });
+      }
+    },
+    handlePrevent(e: Event) {
+      e.preventDefault();
     },
   },
   computed: {

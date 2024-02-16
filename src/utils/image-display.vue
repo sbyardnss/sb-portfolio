@@ -128,9 +128,8 @@ export default defineComponent({
   transition: background-image 0.5s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  .imageElementWithHover {
-    margin-right: .5em;
-  }
+.imageElementWithHover {
+  margin-right: .5em;
 }
+
 </style>
