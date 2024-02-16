@@ -143,12 +143,12 @@ export default defineComponent({
     left: 0%;
     height: 100vh;
     width: 100vw;
-    z-index: 5;
+    z-index: 11;
     background-color: black;
   }
 
   .mobileMenuHamburgerContainer {
-    z-index: 6;
+    z-index: 11;
   }
   .hamburgerMenu {
     display: inline-block;
