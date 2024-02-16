@@ -6,13 +6,13 @@
           <div :class="$style.projectName">{{ project?.name }}</div>
           <div class="btn-danger" v-if="isMobileView" @click="handleNavigateBack">back</div>
         </div>
-        <div>
-          <a class="btn-radial-responsive" :href="project.url" target='_blank'>Visit Site</a>
-        </div>
         <div class="flex between">
-          <GithubLinks 
-            :front-end-link="project.github.frontEnd"
-            :back-end-link="project.github.backEnd" />
+          <a class="btn-radial-responsive" :href="project.url" target='_blank'>Visit Site</a>
+          <div class="flex between">
+            <GithubLinks
+              :front-end-link="project.github.frontEnd"
+              :back-end-link="project.github.backEnd" />
+          </div>
         </div>
         <div class="btn-danger" v-if="!isMobileView" @click="handleNavigateBack">back</div>
       </div>
