@@ -15,7 +15,7 @@
       <div v-if="isMobileView" :class="$style.navLink" @click="navigateToRoute('/')">Home</div>
       <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
-      <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div>
+      <!-- <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div> -->
       <SocialMediaIcons v-if="isMobileView"/>
     </div>
     <div :class="$style.mobileMenuHamburgerContainer">

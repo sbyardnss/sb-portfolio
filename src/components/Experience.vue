@@ -1,7 +1,10 @@
 <template>
   <div class="light-text">
     <section class="flex column align-c">
-      <h2>Technical Experience</h2>
+      <div class="flex between align-c" :class="$style.experiencePageHeader">
+        <h3 class="subHeader">Technical Experience</h3>
+        <a class="btn-action" @click="handleDownloadResume">Download PDF</a>
+      </div>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer"
         v-for="experience in experienceList" class="padded-container-1">
         <div :class="$style.experienceItemHeader" class="bottom-header-border align-e between m-b-1">
@@ -60,6 +63,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ExperienceList, Takeaways } from "@/constants/experience";
+import { downloadResume } from "@/utils/download-resume";
 import { scrollToTop } from "@/utils/scroll-to-top";
 
 export default defineComponent({
@@ -80,6 +84,9 @@ export default defineComponent({
     },
     handleNavigateToExternalLink(url: string) {
       window.open(url, '_blank', 'noopener,noreferrer');
+    },
+    handleDownloadResume() {
+      downloadResume();
     },
   },
   watch: {
@@ -102,10 +109,11 @@ export default defineComponent({
 </script>
 <style module>
 @media (min-width: 769px) {
+  .experiencePageHeader {
+    width: 50%;
+  }
   .experienceItemHeader {
     display: flex;
-    /* align-items: flex-end;
-    justify-content: space-between; */
   }
 
   .extImage {
@@ -120,6 +128,10 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
+
+  .experiencePageHeader {
+    width: 90%;
+  }
   .experienceItemHeader {
     display: block;
   }
