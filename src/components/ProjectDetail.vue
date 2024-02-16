@@ -29,7 +29,7 @@
     </div>
     <div class="flex align-c" :class="$style.imagesAndNotesContainer">
       <div class="flex evenly" :class="$style.projectImagesContainer">
-        <ImageDisplay :key="url" v-for="url in project.images" :image-url="url" :image-height="'8em'" :hover-zoom="true"
+        <ImageDisplay :class="$style.projectImage" :key="url" v-for="url in project.images" :image-url="url" :image-height="'8em'" :hover-zoom="true"
           :click-zoom="true" :image-class="'imageElementWithHover'" />
       </div>
       <ul :class="$style.techNotesContainer">
@@ -94,8 +94,9 @@ export default defineComponent({
 }
 
 .projectImagesContainer {
-  height: fit-content;
+  /* height: fit-content; */
   width: 70%;
+  overflow: scroll;
 }
 
 .techNotesContainer {
@@ -121,6 +122,10 @@ export default defineComponent({
   .imagesAndNotesContainer {
     justify-content: space-between;
   }
+  .projectImagesContainer {
+    height: 12em;
+    align-items: center;
+  }
 }
 @media (max-width: 768px) {
   .projectDetailContainer {
@@ -134,11 +139,16 @@ export default defineComponent({
     font-size: x-large;
   }
   .imagesAndNotesContainer {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .projectImagesContainer {
-    overflow: scroll;
     width: 90%;
+    overflow: scroll;
+    justify-content: flex-start;
+    margin-left: 1em;
+  }
+  .projectImage {
+    width: fit-content;
   }
   .featuresList {
     width: 90%;
