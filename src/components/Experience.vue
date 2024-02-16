@@ -111,6 +111,10 @@ export default defineComponent({
   .extImage {
     width: 10em;
     cursor: pointer;
+    transition: .2s;
+  }
+  .extImage:hover {
+    transform: scale(1.1);
   }
 
 }
