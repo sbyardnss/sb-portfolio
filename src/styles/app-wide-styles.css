@@ -98,7 +98,7 @@ body {
   cursor: pointer;
 }
 
-.btn-radial {
+/* .btn-radial {
   display: flex;
   align-items: center;
   background: #551131;
@@ -118,7 +118,7 @@ body {
 }
 .btn-radial:hover {
   background: #831549;
-}
+} */
 
 .btn-radial-responsive {
   display: flex;
@@ -130,7 +130,7 @@ body {
   padding: .5em;
   margin: .25em;
   height: fit-content;
-  min-height: fit-content;
+  min-height: 1.5em;
   width: fit-content;
   align-self: center;
   border: 1px solid #1b2735;
@@ -150,7 +150,7 @@ body {
   text-align: center;
   padding: .5em;
   margin: 1em;
-  min-height: fit-content;
+  min-height: 1.5em;
   min-width: fit-content;
   align-self: center;
   border: 1px solid #1b2735;

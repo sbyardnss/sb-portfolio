@@ -3,7 +3,7 @@
     <section class="flex column align-c">
       <div class="flex between align-c" :class="$style.experiencePageHeader">
         <h3 class="subHeader">Technical Experience</h3>
-        <a class="btn-action" @click="handleDownloadResume">Download PDF</a>
+        <a class="btn-action" @click="handleDownloadResume">Download CV</a>
       </div>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer"
         v-for="experience in experienceList" class="padded-container-1">
