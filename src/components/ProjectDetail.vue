@@ -96,6 +96,7 @@ export default defineComponent({
   /* height: fit-content; */
   width: 70%;
   overflow: scroll;
+  padding: 1em;
 }
 
 
@@ -123,7 +124,6 @@ export default defineComponent({
   }
 
   .projectImagesContainer {
-    height: 12em;
     align-items: center;
   }
 
@@ -166,7 +166,6 @@ export default defineComponent({
 
   .projectImagesContainer {
     width: 90%;
-    overflow: scroll;
     justify-content: flex-start;
     margin-left: 1em;
   }

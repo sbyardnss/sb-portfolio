@@ -1,8 +1,9 @@
 <template>
-    <img :id="`imageDisplayBasic + ${imageUrl}`" :class="imageClass" :src=imageUrl @click="handleZoomChange" :style="{height: imageHeight,}" :onmouseover="handleHoverZoom" :onmouseout="handleHoverUnzoom"/>
-    <div  v-if="zoomedImage" class="zoomContainer" @click="handleZoomChange" >
-      <img class="zoomedImage" :style="{height: zoomHeight}" :src="imageUrl" />
-    </div>
+  <img :id="`imageDisplayBasic + ${imageUrl}`" :class="imageClass" :src=imageUrl @click="handleZoomChange"
+    :style="{ height: imageHeight, }" :onmouseover="handleHoverZoom" :onmouseout="handleHoverUnzoom" />
+  <div v-if="zoomedImage" class="zoomContainer" @click="handleZoomChange">
+    <img class="zoomedImage" :src="imageUrl" />
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -39,27 +40,28 @@ export default defineComponent({
       required: false,
       default: true,
     },
-    zoomHeight: {
-      type: String,
-      required: false,
-      default: '90%',
-    }
+    // PROP USED ONLY IN OLD RESUME VIEWER. VALUE PLACED INLINE STYLE HEIGHT ON IMAGE ELEMENT
+    // zoomHeight: {
+    //   type: String,
+    //   required: false,
+    //   default: '90%',
+    // }
   },
   methods: {
     handleZoomChange() {
       if (this.clickZoom)
-      this.zoomedImage = !this.zoomedImage;
+        this.zoomedImage = !this.zoomedImage;
     },
     handleHoverZoom() {
       if (this.hoverZoom) {
         const imageToScale = document.getElementById(`imageDisplayBasic + ${this.imageUrl}`);
-        if (imageToScale) 
-        imageToScale.style.transform = 'scale(1.2)';
+        if (imageToScale)
+          imageToScale.style.transform = 'scale(1.2)';
       }
     },
     handleHoverUnzoom() {
       const imageToScale = document.getElementById(`imageDisplayBasic + ${this.imageUrl}`);
-        if (imageToScale) 
+      if (imageToScale)
         imageToScale.style.transform = '';
     },
   },
@@ -68,7 +70,7 @@ export default defineComponent({
       if (this.clickZoom) {
         const imageToHoverCursor = document.getElementById(`imageDisplayBasic + ${this.imageUrl}`);
         if (imageToHoverCursor)
-        imageToHoverCursor.style.cursor = 'pointer'
+          imageToHoverCursor.style.cursor = 'pointer'
       }
     },
   },
@@ -76,30 +78,25 @@ export default defineComponent({
 
 </script>
 <style>
-/* TODO: NOTICE THE FUNCTIONALITY HERE when width is used below and not transform AND THE WAY IT PULSES THE SURROUNDING ELEMENTS. COULD BE COOL FOR A HOMEPAGE FEATURE PURELY FOR FUN */
 .imageElement {
-  /* width: 10%; */
   height: auto;
   object-fit: contain;
   transition: ease-in-out .1s;
-  /* cursor: pointer; */
   outline: 1px solid transparent;
 }
+
 .imageElementWithHover {
-  /* width: 10%; */
-  /* height: auto; */
-  /* object-fit: contain; */
   object-fit: cover;
   transition: ease-in-out .1s;
   cursor: pointer;
   outline: 1px solid transparent;
+
 }
+
 .imageElementWithHover:hover {
   box-shadow: rgb(255, 126, 255, .2) 0em 0em 20px;
   outline: 1px solid magenta;
   transition: ease-in-out .2s;
-  /* width: 12%; */
-  /* transform: scale(1.2); */
   z-index: 1;
 }
 
@@ -118,14 +115,16 @@ export default defineComponent({
   backdrop-filter: brightness(60%);
   z-index: 2;
 }
+
 .zoomedImage {
-  /* height: 90%; */
   margin-left: auto;
   margin-right: auto;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   transition: background-image 0.5s ease-in-out;
+  max-height: 90vh;
+  max-width: 90vw;
 }
 
 .imageElementWithHover {
