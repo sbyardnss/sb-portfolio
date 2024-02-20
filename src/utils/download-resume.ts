@@ -1,6 +1,6 @@
 export function downloadResume() {
     // window.open('/Stephen Byard Resume.pdf', '_blank');
-    fetch('/Stephen Byard Resume.pdf')
+    fetch('/Stephen_Byard_Resume.pdf')
       .then(response => response.blob())
       .then(blob => {
         // Create a blob URL representing the PDF file
@@ -9,7 +9,7 @@ export function downloadResume() {
         const link = document.createElement('a');
         link.href = url;
         // Set the download attribute of the link element
-        link.setAttribute('download', 'Stephen Byard Resume.pdf');
+        link.setAttribute('download', 'Stephen_Byard_Resume.pdf');
         // Append the link to body
         document.body.appendChild(link);
         // Simulate click to start download
