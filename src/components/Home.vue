@@ -6,7 +6,7 @@
         <div class="flex column" :class="$style.bioNameContainer">
           <div :class="$style.nameHeader">Hi, I'm Stephen.
           </div>
-          <div class="w-fit">
+          <div class="w-fit" >
             <p class="responsive-text-large" :class="$style.bio">
               Driven by a
               <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies,
@@ -16,15 +16,15 @@
               In every project, I bring not just technical expertise but a mindset fueled by
               the <span :class="$style.bioHighlight">excitement</span> of exploration and discovery.
             </p>
-            <MobileHomeLinks v-if="!isMobileView"/>
           </div>
+          <MobileHomeLinks v-if="!isMobileView" />
         </div>
-        <div :class="$style.sbImage" />
+        <div id="sbPortrait" :class="$style.sbImage" />
       </div>
-      
+
     </section>
     <div class="flex center align-c wrap w-100">
-      <MobileHomeLinks v-if="isMobileView"/>
+      <MobileHomeLinks v-if="isMobileView" />
     </div>
   </div>
 </template>
@@ -36,9 +36,30 @@ import { downloadResume } from "@/utils/download-resume";
 
 export default defineComponent({
   name: "HomePage",
+  setup() {
+
+    function updateOpacity() {
+      var element = document.getElementById('sbPortrait');
+      var windowWidth = window.innerWidth;
+      let opacity;
+      if (windowWidth > 1300 || windowWidth < 769) {
+        opacity = 1;
+      } else if (windowWidth < 900) {
+        opacity = 0;
+      } else {
+        opacity = 1 - (((windowWidth -  1300) * -1) / (1300 -  900));
+      }
+      if (element)
+      element.style.opacity = opacity.toString();
+    }
+    window.addEventListener('resize', updateOpacity);
+
+    updateOpacity();
+  },
   data() {
     return {
       isMobileView: inject('isMobileView'),
+      windowWidth: window.innerWidth,
     }
   },
   components: {
@@ -62,6 +83,7 @@ export default defineComponent({
   .nameHeader {
     font-size: 4em;
     font-weight: 100;
+    width: fit-content;
   }
 
   .aboutMe {
@@ -69,11 +91,37 @@ export default defineComponent({
   }
 
   .sbImage {
-    width: 10em;
-    height: 12em;
+    /* width: 10em;
+    height: 12em; */
+    width: 360px;
+    height: 500px;
     max-width: 500px;
-    min-width: 175px;
+    /* min-width: 175px; */
     background-size: cover;
+    margin-left: auto;
+    flex-shrink: 1;
+  }
+
+  .aboutMe {
+    /* background-color: rgb(15, 15, 15); */
+    /* justify-content: space-between; */
+    max-width: 80%;
+  }
+
+  .bioNameContainer {
+    margin-right: auto;
+    /* min-width: 44em; */
+    min-width: 40em;
+  }
+
+  .introAndPortrait {
+    min-width: 38em;
+    width: 90vw;
+  }
+
+  .bio {
+    max-width: 90%;
+    width: 680px;
   }
 }
 
@@ -95,12 +143,21 @@ export default defineComponent({
     max-height: 300px;
     max-width: 400px;
     background-size: cover;
+    opacity: 1;
+  }
+
+  .bio {
+    max-width: 550px;
+  }
+
+  .introAndPortrait {
+    width: 100vw;
   }
 }
 
 .aboutMe {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
 
 }
@@ -115,7 +172,6 @@ export default defineComponent({
 
 .bio {
   font-weight: 100;
-  max-width: 550px;
 }
 
 .bioHighlight {
@@ -129,7 +185,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   margin-bottom: 1em;
-  width: 100vw;
+  /* width: 100vw; */
 }
 </style>
 
