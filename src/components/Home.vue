@@ -78,7 +78,9 @@ export default defineComponent({
       scrollToTop();
     },
     orientation() {
-      scrollToTop();
+      setTimeout(() => {
+        scrollToTop();
+      }, 400);
     }
   }
 });

@@ -16,37 +16,34 @@ export default defineComponent({
     Nav,
   },
   setup() {
-    const isMobileView = ref(window.innerWidth <= 768);
-
-    const handleResize = () => {
-      isMobileView.value = window.innerWidth <= 768;
-    };
-
+    const isMobileView = ref(window.innerWidth <=  768);
     const browserOrientation = ref(window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape');
 
     const handleChangeOrientation = () => {
       browserOrientation.value = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
     }
+    const handleResize = () => {
+      isMobileView.value = window.innerWidth <=  768;
+    };
 
+    // Add the event listener for orientation change
+    window.addEventListener('orientationchange', handleChangeOrientation);
 
-    window.addEventListener('resize', () => {
-      handleResize();
-      handleChangeOrientation();
-    });
+    // Remove the event listener when the component is unmounted
     onUnmounted(() => {
-      window.removeEventListener('resize', () => {
-        handleResize();
-        handleChangeOrientation();
-      });
-      
+      window.removeEventListener('orientationchange', handleChangeOrientation);
+    });
 
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Remove resize event listener when the component is unmounted
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize);
     });
 
     provide('isMobileView', isMobileView);
     provide('orientation', browserOrientation);
-
-
-
   },
 });
 
@@ -57,7 +54,6 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
   color: #2c3e50;
   margin: 0px;
 }

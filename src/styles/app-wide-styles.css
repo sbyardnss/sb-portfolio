@@ -102,28 +102,6 @@ body {
   cursor: pointer;
 }
 
-/* .btn-radial {
-  display: flex;
-  align-items: center;
-  background: #551131;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  padding: 1em;
-  margin: 1em;
-  height: 3em;
-  min-height: fit-content;
-  width: 8em;
-  min-width: fit-content;
-  align-self: center;
-  border: 1px solid #1b2735;
-  border-radius: 8px;
-  transition: ease-in-out .1s;
-}
-.btn-radial:hover {
-  background: #831549;
-} */
-
 .btn-radial-responsive {
   display: flex;
   align-items: center;
@@ -147,7 +125,6 @@ body {
 }
 
 .btn-action {
-  /* background: #12714c; */
   background: var(--second-color);
   color: #fff;
   text-decoration: none;
@@ -196,7 +173,6 @@ body {
   padding: 1em;
   background-color: rgb(0, 0, 0, .2);
   z-index: 10;
-  /* border: 1px solid orange; */
 }
 .padded-container-1-light {
   padding: 1em;
