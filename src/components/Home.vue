@@ -91,26 +91,20 @@ export default defineComponent({
   }
 
   .sbImage {
-    /* width: 10em;
-    height: 12em; */
     width: 360px;
     height: 500px;
     max-width: 500px;
-    /* min-width: 175px; */
     background-size: cover;
     margin-left: auto;
     flex-shrink: 1;
   }
 
   .aboutMe {
-    /* background-color: rgb(15, 15, 15); */
-    /* justify-content: space-between; */
     max-width: 80%;
   }
 
   .bioNameContainer {
     margin-right: auto;
-    /* min-width: 44em; */
     min-width: 40em;
   }
 
@@ -157,7 +151,6 @@ export default defineComponent({
 
 .aboutMe {
   display: flex;
-  /* justify-content: space-evenly; */
   align-items: center;
 
 }
@@ -185,7 +178,6 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   margin-bottom: 1em;
-  /* width: 100vw; */
 }
 </style>
 
