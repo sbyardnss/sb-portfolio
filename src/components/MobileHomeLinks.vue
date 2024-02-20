@@ -79,6 +79,7 @@ export default defineComponent({
 }
 
 .mobileHomeMenuItem {
+  max-width: 34em;
 
   display: flex;
   justify-content: space-between;

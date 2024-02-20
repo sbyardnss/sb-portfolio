@@ -88,6 +88,7 @@ export default defineComponent({
 
   .aboutMe {
     width: 80%;
+    max-width: 80%;
   }
 
   .sbImage {
@@ -97,10 +98,6 @@ export default defineComponent({
     background-size: cover;
     margin-left: auto;
     flex-shrink: 1;
-  }
-
-  .aboutMe {
-    max-width: 80%;
   }
 
   .bioNameContainer {
@@ -129,6 +126,7 @@ export default defineComponent({
     width: 90%;
     flex-wrap: wrap;
     height: fit-content;
+    justify-content: center;
   }
 
   .sbImage {
@@ -174,6 +172,7 @@ export default defineComponent({
 
 .introAndPortrait {
   min-height: fit-content;
+  max-width: 1300px;
   display: flex;
   flex-direction: column;
   align-items: center;
