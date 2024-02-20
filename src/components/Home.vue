@@ -73,9 +73,11 @@ export default defineComponent({
     },
   },
   watch: {
-    isMobileView(newValue, oldValue) {
-      if (newValue === true && newValue !== oldValue)
+    isMobileView() {
+      console.log('hitting')
+      // if (newValue !== oldValue){
       scrollToTop();
+      // }
     }
   }
 });
