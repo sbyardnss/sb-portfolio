@@ -5,7 +5,6 @@
       <div :class="$style.aboutMe">
         <div class="flex column" :class="$style.bioNameContainer">
           <div :class="$style.nameHeader">Hi, I'm Stephen.
-            <div> {{ scrollCount }}</div>
           </div>
           <div class="w-fit" >
             <p class="responsive-text-large" :class="$style.bio">
@@ -63,7 +62,6 @@ export default defineComponent({
       isMobileView: inject('isMobileView'),
       windowWidth: window.innerWidth,
       orientation: inject('orientation'),
-      scrollCount: 0,
     }
   },
   components: {
@@ -77,7 +75,6 @@ export default defineComponent({
   },
   watch: {
     isMobileView() {
-      this.scrollCount++;
       scrollToTop();
     },
     orientation() {
