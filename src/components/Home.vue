@@ -74,9 +74,12 @@ export default defineComponent({
   },
   watch: {
     isMobileView() {
-      this.$nextTick(() => {
+      // this.$nextTick(() => {
+      //   scrollToTop();
+      // });
+      setTimeout(() => {
         scrollToTop();
-      });
+      },  100);
     }
   }
 });
