@@ -104,7 +104,7 @@ export default defineComponent({
 
   .sbImage {
     width: 360px;
-    height: 500px;
+    height: 100%;
     max-width: 500px;
     background-size: cover;
     margin-left: auto;
