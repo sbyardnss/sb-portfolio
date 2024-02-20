@@ -33,6 +33,7 @@ import { defineComponent, inject } from "vue";
 import MobileHomeLinks from "./MobileHomeLinks.vue";
 import SocialMediaIcons from "./SocialMedia.vue";
 import { downloadResume } from "@/utils/download-resume";
+import { scrollToTop } from "@/utils/scroll-to-top";
 
 export default defineComponent({
   name: "HomePage",
@@ -71,6 +72,12 @@ export default defineComponent({
       downloadResume();
     },
   },
+  watch: {
+    isMobileView(newValue, oldValue) {
+      if (newValue === true && newValue !== oldValue)
+      scrollToTop();
+    }
+  }
 });
 </script>
 <style module>

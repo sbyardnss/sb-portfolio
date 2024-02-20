@@ -77,9 +77,6 @@ export default defineComponent({
 });
 </script>
 <style module>
-/* .projectDetailContainer {
-  border: 1px solid blue;
-} */
 
 .projectDetailHeader {
   display: flex;
@@ -87,24 +84,15 @@ export default defineComponent({
 }
 
 .projectDescription {
-  /* width: 70%; */
   background: linear-gradient(0.25turn, #090a0f, transparent);
   padding: 2em;
 }
 
 .projectImagesContainer {
-  /* height: fit-content; */
   width: 70%;
   overflow: scroll;
   padding: 1em;
 }
-
-
-/* .socialMediaIcon {
-  margin-right: .5em;
-  font-size: 1.5em;
-  text-decoration: none;
-} */
 
 @media (min-width: 769px) {
   .projectDetailContainer {
