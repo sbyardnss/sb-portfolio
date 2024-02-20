@@ -22,12 +22,31 @@ export default defineComponent({
       isMobileView.value = window.innerWidth <= 768;
     };
 
-    window.addEventListener('resize', handleResize);
+    const browserOrientation = ref(window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape');
+
+    const handleChangeOrientation = () => {
+      browserOrientation.value = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
+    }
+
+
+    window.addEventListener('resize', () => {
+      handleResize();
+      handleChangeOrientation();
+    });
     onUnmounted(() => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', () => {
+        handleResize();
+        handleChangeOrientation();
+      });
+      
+
     });
 
     provide('isMobileView', isMobileView);
+    provide('orientation', browserOrientation);
+
+
+
   },
 });
 

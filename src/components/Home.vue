@@ -61,6 +61,7 @@ export default defineComponent({
     return {
       isMobileView: inject('isMobileView'),
       windowWidth: window.innerWidth,
+      orientation: inject('orientation'),
     }
   },
   components: {
@@ -74,12 +75,10 @@ export default defineComponent({
   },
   watch: {
     isMobileView() {
-      // this.$nextTick(() => {
-      //   scrollToTop();
-      // });
-      setTimeout(() => {
-        scrollToTop();
-      },  100);
+      scrollToTop();
+    },
+    orientation() {
+      scrollToTop();
     }
   }
 });
