@@ -3,6 +3,7 @@ import ProjectsDisplay from "@/components/Projects.vue";
 import ProjectDetail from "@/components/ProjectDetail.vue";
 import HomePage from "@/components/Home.vue";
 import ExperiencePage from "@/components/Experience.vue";
+import ContactPage from "@/components/Contact.vue";
 // import Home from '@/views/Home.vue'
 // import Cats from '@/views/Cats.vue'
 
@@ -28,6 +29,11 @@ const routes: RouteRecordRaw[] = [
     path: "/experience",
     name: "Experience",
     component: ExperiencePage,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: ContactPage,
   },
 ];
 

@@ -3,20 +3,14 @@
     <router-link to="/" :class="$style.homeLink">
       <div class="flex evenly align-e">
         <img :class="$style.SBLogo" src="@/assets/SbLogo.svg" alt="My Image">
-        <div :class="$style.nameContainer">
-          <!-- <div class="subHeader">Stephen Byard</div> -->
-          <!-- <div class="subHeader">Stephen</div>
-          <div class="subHeader">Byard</div> -->
-        </div>
       </div>
-      <!-- <div class="light-text m-1" v-else>SB</div> -->
     </router-link>
-    <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{display: mobileNavDisplay}" class="flex evenly">
+    <div id="navLinkContainer" :class="$style.navLinkContainer" :style="{ display: mobileNavDisplay }" class="flex evenly">
       <div v-if="isMobileView" :class="$style.navLink" @click="navigateToRoute('/')">Home</div>
       <div @click="navigateToRoute('/projects')" :class="$style.navLink">Projects</div>
       <div @click="navigateToRoute('/experience')" :class="$style.navLink">Experience</div>
-      <!-- <div @click="navigateToRoute('/resume')" :class="$style.navLink">Resume</div> -->
-      <SocialMediaIcons v-if="isMobileView"/>
+      <div @click="navigateToRoute('/contact')" :class="$style.navLink">Contact</div>
+      <SocialMediaIcons v-if="isMobileView" />
     </div>
     <div :class="$style.mobileMenuHamburgerContainer">
       <input type="checkbox" id="nav-toggle" :class="$style.active" />
@@ -89,13 +83,11 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #1a1c1e; */
 }
 
 .SBLogo {
   height: 4.5em;
   margin: 0 1em;
-  /* filter: invert(50%); */
 }
 
 .nameContainer {
@@ -162,6 +154,7 @@ export default defineComponent({
   .mobileMenuHamburgerContainer {
     z-index: 11;
   }
+
   .hamburgerMenu {
     display: inline-block;
     cursor: pointer;
@@ -185,6 +178,7 @@ export default defineComponent({
     transition: .3s cubic-bezier(0.215, 0.61, 0.355, 1);
     border-radius: 2px;
   }
+
   .hamburgerMenu:before {
     transform: translateY(-10px);
   }

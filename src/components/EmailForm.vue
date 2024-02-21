@@ -11,7 +11,7 @@
         <label for="email">Your Email Address</label>
         <input class="w-50" type="email" id="email" name="from_email" required />
       </div>
-      <div class="flex column">
+      <div class="flex column m-b-1">
         <label for="message">Your Message</label>
         <textarea name="message" id="message" cols="30" rows="10"></textarea>
       </div>
@@ -56,13 +56,12 @@ export default defineComponent({
 </script>
 <style module>
 .emailFormContainer {
-  /* width: 30em;
-  height: 30em; */
-  /* background-color: blue; */
+  max-width: 90vw;
   margin: 1em;
 }
 .emailForm {
   width: 30em;
+  max-width: 100%;
   height: 30em;
 }
 
