@@ -259,6 +259,9 @@ body {
 }
 
 /* padding reference */
+.p-none {
+  padding: 0;
+}
 .p-quarter {
   padding: .25em;
 }

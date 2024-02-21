@@ -30,7 +30,7 @@
     </section>
     <section class="flex column align-c">
       <h2>Takeaways</h2>
-      <ul class="padded-container-1 m-none" :key="item.title" v-for="item in takeawayList"
+      <ul class="m-none" :key="item.title" v-for="item in takeawayList"
         :class="$style.experienceListItem">
         <div class="subHeader">{{ item.title }}</div>
         <p>{{ item.detail }}</p>
@@ -149,5 +149,6 @@ export default defineComponent({
 .experienceListItem {
   padding-bottom: 2em;
   margin-bottom: 2em;
+  padding-left: 0;
 }
 </style>
