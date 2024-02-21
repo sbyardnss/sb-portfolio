@@ -150,6 +150,7 @@ export default defineComponent({
 
   .imagesAndNotesContainer {
     flex-wrap: wrap;
+    max-width: 90vw;
   }
 
   .projectImagesContainer {

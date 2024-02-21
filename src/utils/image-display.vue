@@ -109,11 +109,12 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   transition: .5s ease-in-out;
   backdrop-filter: brightness(60%);
   z-index: 2;
+  margin: 0 auto;
 }
 
 .zoomedImage {

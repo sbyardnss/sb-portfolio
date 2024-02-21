@@ -75,7 +75,10 @@ export default defineComponent({
 }
 @media (max-width: 768px) {
   .projectListItem {
-    width: 20em;
+    width: 100%;
+  }
+  .projectLIOverlay {
+    border-radius: 4px 20px 4px 20px;
   }
 }
 h1 {
@@ -137,29 +140,4 @@ h1 {
   align-self: flex-end;
   justify-self: flex-end;
 }
-
-/* .projectItem:hover {
-  transition: 0.15s ease-in-out;
-  background: #533165;
-} */
-/* .projectTitle {
-  margin: 1em;
-  font-size: X-large;
-  font-weight: lighter;
-  color: whitesmoke;
-} */
-
-/* .demoImage {
-  height: 90%;
-} */
-/* .projectPitch {
-  width: 30%;
-  height: fit-content;
-  align-self: center;
-} */
-
-/* .projectTitle:hover {
-  transition: 0.15s ease-in-out;
-  color: rgb(0, 191, 172);
-} */
 </style>
