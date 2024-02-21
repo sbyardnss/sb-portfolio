@@ -103,11 +103,9 @@ export default defineComponent({
   .experiencePageHeader {
     width: 80%;
   }
+
   .experienceListItem {
     width: 80%;
-  }
-  .experienceItemHeader {
-    display: flex;
   }
 
   .extImage {
@@ -115,6 +113,7 @@ export default defineComponent({
     cursor: pointer;
     transition: .2s;
   }
+
   .extImage:hover {
     transform: scale(1.1);
   }
@@ -126,19 +125,25 @@ export default defineComponent({
   .experiencePageHeader {
     width: 90%;
   }
+
   .experienceListItem {
     width: 90%;
   }
-  .experienceItemHeader {
-    display: block;
-  }
+
 
   .extImage {
     width: 7em;
   }
+
   ul {
     padding-left: 1em;
   }
+}
+.experiencePageHeader {
+  margin: 1em 0;
+}
+.experienceItemHeader {
+  display: flex;
 }
 
 .experienceListItem {
@@ -146,34 +151,3 @@ export default defineComponent({
   margin-bottom: 2em;
 }
 </style>
-
-
-<!-- - Part 1: Planning In this crucial phase, I meticulously understand project goals,
-creating a foundation for success. By developing a clear outline of
-functionality, I ensure that the project meets both client expectations and
-end-user needs. The process includes crafting design mockups, providing a visual
-roadmap for the project's aesthetic and functional elements. Additionally,
-effective time management is a cornerstone, ensuring projects are delivered on
-time without compromising quality. 
-- Part 2: Organization A well-organized
-codebase is paramount for project scalability and maintainability. I adhere to
-consistent file structures, making it easy for both myself and other developers
-to navigate the code. Utilizing abstraction and inheritance principles, I design
-code that is modular and extensible, promoting code reuse and reducing
-redundancy. This results in a streamlined development process and a more
-sustainable product. 
-- Part 3: Knowing Worth Recognizing that my value as a
-developer is directly tied to the skills I bring to the table, I invest in
-continuous skill development. I not only understand the length of time a project
-will take but also have a keen sense of predicting the time required to learn
-new technologies or skills. This foresight enables effective project planning
-and ensures that I stay ahead of industry trends, providing maximum value to my
-clients. 
-- Part 4: Referencing Documentation for New Technologies and Processes In
-adapting to the ever-evolving tech landscape, I have honed the skill of
-referencing documentation effectively. I successfully incorporated PayPal
-functionality into projects by delving into their documentation via the Requests
-library. Similarly, I seamlessly integrated Cloudinary and OpenAI into my
-repertoire by navigating their documentation with precision. This ability not
-only showcases my resourcefulness but also highlights my commitment to staying
-abreast of cutting-edge technologies. -->
