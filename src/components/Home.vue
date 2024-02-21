@@ -6,7 +6,7 @@
         <div class="flex column" :class="$style.bioNameContainer">
           <div :class="$style.nameHeader">Hi, I'm Stephen.
           </div>
-          <div class="w-fit" >
+          <div class="w-fit">
             <p class="responsive-text-large" :class="$style.bio">
               Driven by a
               <span :class="$style.bioHighlight">passion for learning</span>, I thrive on mastering new technologies,
@@ -48,14 +48,16 @@ export default defineComponent({
       } else if (windowWidth < 900) {
         opacity = 0;
       } else {
-        opacity = 1 - (((windowWidth -  1300) * -1) / (1300 -  900));
+        opacity = 1 - (((windowWidth - 1300) * -1) / (1300 - 900));
       }
       if (element)
-      element.style.opacity = opacity.toString();
+        element.style.opacity = opacity.toString();
     }
     window.addEventListener('resize', updateOpacity);
+    setTimeout(() => {
+      updateOpacity();
+    }, 50)
 
-    updateOpacity();
   },
   data() {
     return {
@@ -171,6 +173,7 @@ export default defineComponent({
   background-image: url("../assets/faceBio.jpeg");
   background-position-x: center;
   border-radius: 10px;
+  opacity: 0;
 }
 
 .bio {
