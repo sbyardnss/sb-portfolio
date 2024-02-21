@@ -2,13 +2,13 @@
   <div :class="$style.projectDetailContainer">
     <div class="block">
       <div class="page-header" :class="$style.projectDetailHeader">
-        <div class="flex between align-c">
-          <div :class="$style.projectName">{{ project?.name }}</div>
+        <div :class="$style.projectNameContainer" class="flex between align-c">
+          <div class="header" :class="$style.projectName">{{ project?.name }}</div>
           <div class="btn-danger" v-if="isMobileView" @click="handleNavigateBack">back</div>
         </div>
         <div class="flex between">
           <a class="btn-radial-responsive" :href="project.url" target='_blank'>Visit Site</a>
-          <div class="flex between">
+          <div :class="$style.githubLinksContainer" class="flex between">
             <GithubLinks
               :front-end-link="project.github.frontEnd"
               :back-end-link="project.github.backEnd" />
@@ -94,6 +94,12 @@ export default defineComponent({
   padding: 1em;
 }
 
+.githubLinksContainer {
+  width: 12em;
+  margin-left: .25em;
+}
+
+
 @media (min-width: 769px) {
   .projectDetailContainer {
     width: 70%;
@@ -133,7 +139,9 @@ export default defineComponent({
   .projectDetailHeader {
     flex-direction: column;
   }
-
+  .projectNameContainer {
+    margin-bottom: 1em;
+  }
   .projectName {
     font-size: x-large;
   }
