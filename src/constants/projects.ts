@@ -23,6 +23,7 @@ export const ProjectLinks: Project[] = [
       'ReactJS frontend',
       'Python/Django backend',
       'Custom Django permissions',
+      'React-Chessboard and ChessJs integrated for game interface and rules',
     ],
     images: [
       '/assets/villager_chess/homepage.jpeg',
@@ -54,6 +55,7 @@ export const ProjectLinks: Project[] = [
       'User-facing inventory tracking to indicate availability',
       'Admin portal with custom Django permissions for updating schedule and adjusting inventory',
       'Order tracking based on Paypal response for admin purposes',
+      'Cloudinary integrated for easy addition/edit of images via admin portal',
       'Responsive styling',
     ],
     notes: [

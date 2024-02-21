@@ -110,7 +110,7 @@ body {
   text-decoration: none;
   text-align: center;
   padding: .5em;
-  margin: .25em;
+  /* margin: .25em; */
   height: fit-content;
   min-height: 1.5em;
   width: fit-content;
@@ -130,7 +130,7 @@ body {
   text-decoration: none;
   text-align: center;
   padding: .5em;
-  margin: 1em;
+  /* margin: 1em; */
   min-height: 1.5em;
   min-width: fit-content;
   align-self: center;

@@ -1,14 +1,14 @@
 <template>
   <div class="light-text">
-    <section class="flex column align-c">
+    <section class="flex column align-c full-container">
       <div class="flex between align-c" :class="$style.experiencePageHeader">
-        <h3 class="subHeader">Technical Experience</h3>
+        <h3 class="header">Experience</h3>
         <a class="btn-action" @click="handleDownloadResume">Download CV</a>
       </div>
       <div :class="$style.experienceListItem" :key="experience.employer" :ref="experience.employer"
-        v-for="experience in experienceList" class="padded-container-1">
+        v-for="experience in experienceList">
         <div :class="$style.experienceItemHeader" class="bottom-header-border align-e between m-b-1">
-          <div class="header">
+          <div class="subHeader">
             {{ experience.position }}
           </div>
           <div class="subheader">{{ experience.ext.image ? '' : experience.employer }}</div>
@@ -35,15 +35,6 @@
         <div class="subHeader">{{ item.title }}</div>
         <p>{{ item.detail }}</p>
       </ul>
-      <!-- - Part 1: planning - understanding goals - clear outline of functionality
-      as much as possible - design mockups - time management? - Part 2:
-      organization - consistent file structure - abstraction - inheritance -
-      Part 3: knowing worth - My value depends on the skills I bring to the
-      table - Understanding of length of time a project will take - Predicting
-      length of time to learn new tech or skills - Part 4: referencing
-      documentation for new technologies and processes - Learned paypal via
-      requests - Learned how to incorporate cloudinary - Learned how to
-      incorporate openAI - points of improvement -->
     </section>
     <section class="padded-container-1">
       <h2 class="text-align-c">Education</h2>
@@ -110,7 +101,10 @@ export default defineComponent({
 <style module>
 @media (min-width: 769px) {
   .experiencePageHeader {
-    width: 50%;
+    width: 80%;
+  }
+  .experienceListItem {
+    width: 80%;
   }
   .experienceItemHeader {
     display: flex;
@@ -132,6 +126,9 @@ export default defineComponent({
   .experiencePageHeader {
     width: 90%;
   }
+  .experienceListItem {
+    width: 90%;
+  }
   .experienceItemHeader {
     display: block;
   }
@@ -145,7 +142,6 @@ export default defineComponent({
 }
 
 .experienceListItem {
-  width: 80%;
   padding-bottom: 2em;
   margin-bottom: 2em;
 }
